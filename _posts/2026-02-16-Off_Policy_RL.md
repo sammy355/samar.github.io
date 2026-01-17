@@ -1,7 +1,7 @@
 ---
 title: "Improved Off-policy Reinforcement Learning in Biological Sequence Design"
 date: 2026-02-16
-permalink: /posts/2026/02/diffsbdd/
+permalink: /posts/2026/02/RL_seq/
 tags:
   - deep-learning
   - drug-discovery
