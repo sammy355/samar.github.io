@@ -9,9 +9,9 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Structure-based drug design with equivariant diffusion models"
+title                    : "Improved Off-policy Reinforcement Learning"
 title_separator          : "-"
-name                     : &name "Yamandeep Yamandeep"
+name                     : &name "Samar Siddiqui"
 description              : # &description "personal description"
 url: "https://sammy355.github.io"
 baseurl: "/samar.github.io"  # project name after the slash
@@ -22,7 +22,7 @@ repository: "sammy355/samar.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "ss.png"
   name             : "Samar Siddiqui"
   bio              : "M.Sc. Computer Science"
   location         : "Stuttgart, Germany"
