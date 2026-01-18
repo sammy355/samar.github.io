@@ -12,7 +12,7 @@ tags:
 math: true
 ---
 
-[comment]: <> (# Structure-based Drug Design with Equivariant Diffusion Models: Unifying Physical Consistency with Molecular Innovation)
+[comment]: <> (Structure-based Drug Design with Equivariant Diffusion Models: Unifying Physical Consistency with Molecular Innovation)
 
 ## Abstract
 
