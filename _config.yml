@@ -13,9 +13,9 @@ title                    : "Structure-based drug design with equivariant diffusi
 title_separator          : "-"
 name                     : &name "Yamandeep Yamandeep"
 description              : # &description "personal description"
-url: "https://yaman3397.github.io"
-baseurl: "/yamandeep.github.io"  # project name after the slash
-repository: "yaman3397/yamandeep.github.io"
+url: "https://sammy355.github.io"
+baseurl: "/samar.github.io"  # project name after the slash
+repository: "sammy355/samar.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -23,7 +23,7 @@ repository: "yaman3397/yamandeep.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Yamandeep Yamandeep"
+  name             : "Samar Siddiqui"
   bio              : "M.Sc. Computer Science"
   location         : "Stuttgart, Germany"
   employer         : "University of Stuttgart"
@@ -43,7 +43,7 @@ author:
   bitbucket        : # Username - Update with your username on the site
   codepen          : # Username
   dribbble         : # Username
-  github           : "yaman3397"
+  github           : "sammy355"
   kaggle           : # Username  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
