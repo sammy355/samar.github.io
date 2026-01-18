@@ -4,11 +4,11 @@ date: 2026-02-16
 permalink: /posts/2026/02/RL_seq/
 tags:
   - deep-learning
-  - drug-discovery
-  - diffusion-models
-  - equivariant
-  - molecular-design
-  - SBDD
+  - Reinforcement-Learning
+  - Biological-Sequence-Design
+  - Proxy-training
+  - 𝜹-Conservative-search
+  - GFlowNets
 math: true
 ---
 
