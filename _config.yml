@@ -22,7 +22,7 @@ repository: "sammy355/samar.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "ss.png"
+  avatar           : "pfp.jpeg"
   name             : "Samar Siddiqui"
   bio              : "M.Sc. Computer Science"
   location         : "Stuttgart, Germany"
