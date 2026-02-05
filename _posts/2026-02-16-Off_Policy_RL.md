@@ -347,7 +347,7 @@ This illustrates DiffSBDD’s capacity to navigate trade-offs between affinity, 
 ![Figure 9: Property and selectivity optimization using DiffSBDD.]({{ site.baseurl }}/images/fig9.png)
 *Figure 9: DiffSBDD supports multi-objective optimization of molecules for improved drug-likeness, docking, and target specificity. Panels (A–D) show iterative improvement across QED, SA, and docking score. Panel (E) shows kinase overlay. Panel (F) shows optimization trajectory. Panel (G) visualizes specificity control in binding conformations.*
 
-## Critical Analysis
+## Adaptive Conservativeness Using Uncertainty
 
 While DiffSBDD is an exciting leap in generative drug design, a critical examination helps clarify both its unique strengths and its current limitations—crucial for evaluating real-world impact<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a>.
 
