@@ -376,7 +376,7 @@ While DiffSBDD is an exciting leap in generative drug design, a critical examina
 
 - **Expansion to Other Domains**: The same principles could extend to enzyme engineering, materials discovery, or even battery electrolytes, where 3D interactions matter but datasets are small—making equivariant priors even more valuable.
 
-## Broader Impact and Future Directions
+## Experimental Setup and Benchmarks
 
 DiffSBDD exemplifies how machine learning can accelerate drug discovery, reducing costs and time by exploring vast chemical space efficiently<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-6" title="Zhavoronkov et al. (2019) DDR1 Kinase Inhibitors">[6]</a>. The method paves the way for AI-driven precision medicine, improved catalysts, and advanced materials. Ethical considerations include ensuring equitable access to such technologies and careful validation to avoid biased or unsafe outputs.
 
