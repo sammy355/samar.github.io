@@ -21,7 +21,7 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 ## Table of Contents
 
 - [Introduction and Motivation](#introduction-and-motivation)  
-- [Background: Biological Sequence Design & Why It’s Hard](#bsd)  
+- [Background: Biological Sequence Design & Why It’s Hard](#background-from-screening-to-ai-driven-designd)  
 - [The DiffSBDD Approach – Technical Deep Dive](#the-diffsbbd-approach)
 - [Revolutionary Applications](#revolutionary-applications)  
 - [Experimental Validation and Results](#experimental-validation-and-results)  
@@ -53,7 +53,7 @@ A notable advantage is that the model is general-purpose. It can handle de novo 
 
 Empirical evaluations have shown encouraging results. DiffSBDD has demonstrated up to 10-fold improvements in selectivity for kinase targets compared to prior baselines. Moreover, the generated molecules exhibit higher diversity and improved docking scores, particularly on benchmarks like CrossDocked.
 
-## Background: Biological Sequence Design & Why It’s Hard {#bsd}
+## Background: Biological Sequence Design & Why It’s Hard
 
 Drug discovery has always involved a bit of guesswork. For years, scientists have relied on virtual screening to evaluate large molecular libraries comprising thousands to millions of candidates, in search of compounds with favorable binding affinity to target proteins. This method works, but only within the limits of what’s already in our molecular libraries. That’s a problem, because most of chemical space remains unexplored.
 
