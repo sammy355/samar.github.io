@@ -365,7 +365,7 @@ DiffSBDD represents a significant advance in computational drug design by combin
 <a id="ref-8"></a>
 ## References
 
-1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design.
+1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
 2. Satorras, V. G., Hoogeboom, E., Fuchs, F. B., & Welling, M. (2021). E(n) Equivariant Graph Neural Networks. *arXiv preprint arXiv:2102.09844*. https://arxiv.org/abs/2102.09844  
 3. Xu, M., Wang, Y., Hu, W., & Leskovec, J. (2021). GeoDiff: A Geometric Diffusion Model for Molecular Conformation Generation. *ICLR 2022*. https://arxiv.org/abs/2203.02923  
 4. Lu, C., Wu, H., Shen, R., & Cao, Y. (2021). Pocket2Mol: Efficient Molecular Generation Based on Binding Pockets. *NeurIPS 2021*. https://arxiv.org/abs/2110.07875  
