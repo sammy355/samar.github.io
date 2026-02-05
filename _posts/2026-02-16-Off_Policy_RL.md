@@ -20,11 +20,12 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 
 - [Introduction and Motivation](#introduction-and-motivation)  
 - [Background: Biological Sequence Design](#background-biological-sequence-design)  
-- [The DiffSBDD Approach – Technical Deep Dive](#the-diffsbbd-approach)
-- [Revolutionary Applications](#revolutionary-applications)  
-- [Experimental Validation and Results](#experimental-validation-and-results)  
-- [Critical Analysis](#critical-analysis)  
-- [Broader Impact and Future Directions](#broader-impact-and-future-directions)  
+- [Reinforcement Learning for Sequence Design](#reinforcement-learning-for-Sequence-design)
+- [The Core Problem: Proxy Misspecification](#the-core-problem-proxy-misspecification)  
+- [Key Idea: Delta Conservative Search](#key-idea-delta-conservative-search)  
+- [Adaptive Conservativeness Using Uncertainty](#adaptive-conservativeness-using-uncertainty)  
+- [Experimental Setup and Benchmarks](#experimental-setup-and-benchmarks)  
+- [Results](#results)  
 - [Conclusion](#conclusion)
 
 ## Introduction and Motivation
@@ -67,7 +68,7 @@ DiffSBDD builds on these ideas by combining symmetry-aware modeling with a diffu
 
 This transition from rigid libraries to generative spatial modeling sets the stage for DiffSBDD’s core innovations. What follows is a closer look at how equivariant diffusion is reshaping the landscape of molecular generation.
 
-## The DiffSBDD Approach – Technical Deep Dive {#the-diffsbbd-approach}
+## Reinforcement Learning for Sequence Design
 
 ### 1. Score-Based Diffusion Sampling
 Most generative models work like painters: they build up a molecule atom by atom, starting from nothing. DiffSBDD flips this logic on its head. Instead of constructing molecules step-by-step, it starts with pure noise—a cloud of random 3D points—and sculpts that noise into a molecule using a process called diffusion sampling.
@@ -254,7 +255,7 @@ During training, the model learns to predict the correct score field based on no
 ![Figure 6: The full DiffSBDD architecture showing input processing, message passing, and score prediction for ligand generation.]({{ site.baseurl }}/images/fig6.png)
 *Figure 6: The full DiffSBDD architecture showing input processing, message passing, and score prediction for ligand generation.*
 
-## Revolutionary Applications
+## The Core Problem: Proxy Misspecification
 
 Beyond theoretical appeal, the DiffSBDD framework has demonstrated practical capabilities across a broad set of drug design scenarios that typically require dedicated tools. The model’s unified architecture, paired with its conditional generation and inpainting features, allows it to flexibly adapt to different application domains without retraining<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-4" title="Lu et al. (2021) Pocket2Mol">[4]</a>.
 
@@ -275,7 +276,7 @@ Together, these capabilities make DiffSBDD a practical, versatile tool for medic
 ![Figure 7: Diverse molecular design tasks enabled by DiffSBDD’s conditional generation.]({{ site.baseurl }}/images/fig8.png)
 *Figure 7: DiffSBDD supports a variety of drug design scenarios using a unified inpainting mechanism. Tasks include scaffold hopping (A), elaboration (B), fragment merging (C), growing (D), and linking (E). Resampling studies (F–G) show that connectivity improves with more iterations.*
 
-## Experimental Validation and Results
+## Key Idea: Delta Conservative Search
 
 To evaluate DiffSBDD’s real-world utility, the authors benchmarked it against several state-of-the-art molecular generative models on two major datasets: CrossDocked and Binding MOAD. These datasets represent synthetic and experimental protein-ligand complexes, respectively<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-7" title="Berman et al. (2000) Protein Data Bank">[7]</a>.
 
@@ -380,6 +381,9 @@ While DiffSBDD is an exciting leap in generative drug design, a critical examina
 DiffSBDD exemplifies how machine learning can accelerate drug discovery, reducing costs and time by exploring vast chemical space efficiently<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-6" title="Zhavoronkov et al. (2019) DDR1 Kinase Inhibitors">[6]</a>. The method paves the way for AI-driven precision medicine, improved catalysts, and advanced materials. Ethical considerations include ensuring equitable access to such technologies and careful validation to avoid biased or unsafe outputs.
 
 This framework can inspire similar applications in materials science, agrochemistry, and beyond, highlighting the growing impact of equivariant generative models in physical sciences<a href="#ref-2" title="Satorras et al. (2021) E(n) Equivariant Graph Neural Networks">[2]</a>.
+
+## Results
+
 
 ## Conclusion
 
