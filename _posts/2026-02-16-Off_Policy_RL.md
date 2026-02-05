@@ -12,8 +12,6 @@ tags:
 math: true
 ---
 
-[comment]: <> (Structure-based Drug Design with Equivariant Diffusion Models: Unifying Physical Consistency with Molecular Innovation)
-
 ## Abstract
 
 Designing biological sequences such as DNA, RNA, and proteins is a central challenge in biotechnology due to the Huge search space and the high cost of estimation. Recent reinforcement learning (RL) approaches rely on proxy models to estimate quality, but these models often fail when exploring regions with unknown data. This paper introduces δ-Conservative Search (δ-CS), a novel off-policy reinforcement learning strategy that balances exploration and reliability in biological sequence design. The method focus on high-scoring known sequences by randomly masking tokens and then denoising them using a generative policy, ensuring that new candidates remain close to reliable regions of the search space. The degree of conservativeness is adaptively adjusted based on the proxy model’s uncertainty. Experiments across DNA, RNA, and protein design tasks demonstrate that δ-CS consistently discovers higher quality sequences than existing methods. This makes δ-CS a scalable and reliable framework for real-world biological design.
@@ -21,7 +19,7 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 ## Table of Contents
 
 - [Introduction and Motivation](#introduction-and-motivation)  
-- [Background: Biological Sequence Design & Why It’s Hard](#background-from-screening-to-ai-driven-designd)  
+- [Background: Biological Sequence Design](#background-biological-sequence-design)  
 - [The DiffSBDD Approach – Technical Deep Dive](#the-diffsbbd-approach)
 - [Revolutionary Applications](#revolutionary-applications)  
 - [Experimental Validation and Results](#experimental-validation-and-results)  
@@ -53,7 +51,7 @@ A notable advantage is that the model is general-purpose. It can handle de novo 
 
 Empirical evaluations have shown encouraging results. DiffSBDD has demonstrated up to 10-fold improvements in selectivity for kinase targets compared to prior baselines. Moreover, the generated molecules exhibit higher diversity and improved docking scores, particularly on benchmarks like CrossDocked.
 
-## Background: Biological Sequence Design & Why It’s Hard
+## Background: Biological Sequence Design
 
 Drug discovery has always involved a bit of guesswork. For years, scientists have relied on virtual screening to evaluate large molecular libraries comprising thousands to millions of candidates, in search of compounds with favorable binding affinity to target proteins. This method works, but only within the limits of what’s already in our molecular libraries. That’s a problem, because most of chemical space remains unexplored.
 
