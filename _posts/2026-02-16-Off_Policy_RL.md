@@ -29,10 +29,9 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 
 ## Introduction and Motivation
 
-In Biotechnology, designing biological sequences is a central problem. For example, we may want to design DNA sequences with high binding affinity, RNA molecules with specific folding properties, or proteins with enhanced fluorescence or stability. However, this is extremely challenging. The search space for the sequences grows exponentially Large with increasing sequence length, which makes brute-force search impossible. Furthermore, evaluating these sequences using an evaluating function, usually known as "Oracle function" or simply what we call "wet-lab experiments" or using some detailed simulations is very expensive and takes a lot of time.
+In Biotechnology, designing biological sequences is a central problem. For example, we may want to design DNA sequences with high binding affinity, RNA molecules with specific folding properties, or proteins with enhanced fluorescence or stability. However, this is extremely challenging. The search space for the sequences grows exponentially Large with increasing sequence length, which makes brute-force search impossible. Furthermore, evaluating these sequences using an evaluating function, usually known as "Oracle function" or simply what we call "wet-lab experiments" is very expensive and takes a lot of time. Also, evaluation using Detailed simulation is not very cost and time effective as well.
 
-To address this problem, we often use machine learning models called proxy models. But proxies are imperfect, they are not always accurate and can make unreliable predictions, especially for unknown sequences. This paper addresses exactly this issue by proposing a conservative search strategy that improves robustness without sacrificing exploration. It introduces a novel off-policy search method called Delta-Conservative Search (δ-CS), which is designed to enhance the robustness of generative policies, specifically Generative Flow Networks (GFlowNets), for designing biological sequences such as DNA, RNA, and proteins<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-2" title="Satorras et al. (2021) E(n) Equivariant Graph Neural Networks">[2]</a>. 
-
+To address this problem, we often use machine learning models called proxy models. But these proxies are imperfect, they are not always accurate and can make unreliable predictions, especially for unknown sequences. This paper addresses exactly this issue by proposing a conservative search strategy that improves robustness without sacrificing exploration. It introduces a novel off-policy search method called Delta-Conservative Search (δ-CS), which is designed to enhance the robustness of generative policies, specifically Generative Flow Networks (GFlowNets), for designing biological sequences such as DNA, RNA, and proteins<a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>.
 
 ## Reinforcement Learning for Sequence Design
 
@@ -366,7 +365,7 @@ DiffSBDD represents a significant advance in computational drug design by combin
 <a id="ref-8"></a>
 ## References
 
-1. Hoogeboom, E., Loukas, A., & Welling, M. (2024). Structure-based drug design with equivariant diffusion models. *Nature Machine Intelligence*, 6, 687–697. https://doi.org/10.1038/s43588-024-00737-x  
+1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design.
 2. Satorras, V. G., Hoogeboom, E., Fuchs, F. B., & Welling, M. (2021). E(n) Equivariant Graph Neural Networks. *arXiv preprint arXiv:2102.09844*. https://arxiv.org/abs/2102.09844  
 3. Xu, M., Wang, Y., Hu, W., & Leskovec, J. (2021). GeoDiff: A Geometric Diffusion Model for Molecular Conformation Generation. *ICLR 2022*. https://arxiv.org/abs/2203.02923  
 4. Lu, C., Wu, H., Shen, R., & Cao, Y. (2021). Pocket2Mol: Efficient Molecular Generation Based on Binding Pockets. *NeurIPS 2021*. https://arxiv.org/abs/2110.07875  
