@@ -19,7 +19,6 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 ## Table of Contents
 
 - [Introduction and Motivation](#introduction-and-motivation)  
-- [Background: Biological Sequence Design](#background-biological-sequence-design)  
 - [Reinforcement Learning for Sequence Design](#reinforcement-learning-for-Sequence-design)
 - [The Core Problem: Proxy Misspecification](#the-core-problem-proxy-misspecification)  
 - [Key Idea: Delta Conservative Search](#key-idea-delta-conservative-search)  
@@ -34,21 +33,6 @@ In Biotechnology, designing biological sequences is a central problem. For exa
 
 To address this problem, we often use machine learning models called proxy models. But proxies are imperfect, they are not always accurate and can make unreliable predictions, especially for unknown sequences. This paper addresses exactly this issue by proposing a conservative search strategy that improves robustness without sacrificing exploration. It introduces a novel off-policy search method called Delta-Conservative Search (δ-CS), which is designed to enhance the robustness of generative policies, specifically Generative Flow Networks (GFlowNets), for designing biological sequences such as DNA, RNA, and proteins<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-2" title="Satorras et al. (2021) E(n) Equivariant Graph Neural Networks">[2]</a>. 
 
-## Background: Biological Sequence Design
-
-Drug discovery has always involved a bit of guesswork. For years, scientists have relied on virtual screening to evaluate large molecular libraries comprising thousands to millions of candidates, in search of compounds with favorable binding affinity to target proteins. This method works, but only within the limits of what’s already in our molecular libraries. That’s a problem, because most of chemical space remains unexplored.
-
-Another route, fragment-based design, tries to take small pieces that bind weakly and stitch them together into something stronger. In theory, this expands the possibilities. But in practice, enumerating valid chemical combinations quickly becomes combinatorially intractable, often producing candidates with poor physicochemical stability or synthetic accessibility<a href="#ref-8" title="Huuskonen (2000) Solubility Estimation via Topology">[8]</a>.
-
-With the rise of deep learning, things started to change. Instead of searching through what we already have, machine learning promised something more ambitious: generating molecules from scratch. Initial generative models relied on 1D string representations (e.g., SMILES) or 2D molecular graphs. These were easy to work with, but they left out something important—how molecules actually exist in space. For instance, SMILES-based models fail to encode stereochemistry, torsional constraints, or 3D conformation, which can result in up to 30% error in downstream binding affinity tasks.
-
-That missing piece—geometry—isn’t just a detail. It shapes how drugs interact with proteins, how tightly they bind, and how specific they are. Minor perturbations in 3D geometry can drastically alter bioactivity or off-target interactions. That’s why ignoring geometry can lead models to produce molecules that look promising but fail when tested in real-world conditions.
-
-To overcome this, researchers began building models that take spatial structure seriously. Some of the most promising are equivariant neural networks<a href="#ref-2" title="Satorras et al. (2021) E(n) Equivariant Graph Neural Networks">[2]</a>. These models are built to respect how 3D molecules behave—they know that if you rotate or shift a molecule, it’s still the same molecule. That might sound like a small thing, but it's critical for accurate predictions.
-
-DiffSBDD builds on these ideas by combining symmetry-aware modeling with a diffusion process<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-2" title="Satorras et al. (2021) E(n) Equivariant Graph Neural Networks">[2]</a>. Rather than generating molecules step by step, it starts with noisy data and gradually refines it into a valid molecule—one that makes sense both chemically and spatially. The model can “see” the protein pocket and generate a geometrically and chemically plausible ligand that conforms to the binding pocket topology.
-
-This transition from rigid libraries to generative spatial modeling sets the stage for DiffSBDD’s core innovations. What follows is a closer look at how equivariant diffusion is reshaping the landscape of molecular generation.
 
 ## Reinforcement Learning for Sequence Design
 
