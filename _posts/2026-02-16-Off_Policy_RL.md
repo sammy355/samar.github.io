@@ -50,21 +50,6 @@ To address the limitations of On-policy RL, researchers have turned to off-polic
 One influential off-policy framework for sequence design is Generative Flow Networks (GFlowNets). Instead of learning a single optimal sequence, GFlowNets learn a distribution over sequences, where the probability of sampling a sequence is proportional to its reward. This allows them to generate high-quality sequences , a crucial property when exploring biological landscapes. Another advantage of GFlowNets is their flexibility, they can mix offline data (existing evaluated sequences) with newly generated samples, leading to more stable and efficient training compared to on-policy RL methods.
 
 
-> Think of it like a sculptor refining a rough block into a statue — except the sculptor has full awareness of the target shape (the protein pocket), and the statue gradually emerges through hundreds of symmetry-aware denoising steps.
-
-![Figure 1: Workflow of DiffSBDD from protein pocket input to 3D ligand generation via equivariant diffusion.]({{ site.baseurl }}/images/fig1.png)
-*Figure 1: Workflow of DiffSBDD from protein pocket input to 3D ligand generation via equivariant diffusion.*
-
-# Score-based denoising loop
-```python
-def sample_ligand_from_noise(model, steps, eta, protein_context):
-    x_t = initialize_gaussian_noise()
-    for t in reversed(range(steps)):
-        score = model.predict_score(x_t, t, protein_context)
-        x_t = x_t + eta * score
-    return x_t
-```
-
 ## The Core Problem: Proxy Misspecification
 
 Beyond theoretical appeal, the DiffSBDD framework has demonstrated practical capabilities across a broad set of drug design scenarios that typically require dedicated tools. The model’s unified architecture, paired with its conditional generation and inpainting features, allows it to flexibly adapt to different application domains without retraining<a href="#ref-1" title="Hoogeboom et al. (2024) Structure-based drug design with equivariant diffusion models">[1]</a><a href="#ref-4" title="Lu et al. (2021) Pocket2Mol">[4]</a>.
