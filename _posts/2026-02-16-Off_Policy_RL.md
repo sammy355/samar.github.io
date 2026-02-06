@@ -80,10 +80,6 @@ The active learning process has multiple rounds. In each round, a proxy model is
 
 Finally, a batch of generated sequences is evaluated using the true oracle, and the resulting data is added to the dataset for the next round (<i>Fig 1 : Step C</i>). By repeating this cycle, the framework efficiently balances exploration and exploitation, discovering higher-quality biological sequences while minimizing costly oracle evaluations.
 
-<b>Step B (Policy Training with δ-CS) : </b> We train a generative policy p(x; θ) using the proxy model fϕ(x) and the dataset D<sub>t−1</sub> with δ-CS.
-
-<b>Step C (Offline Dataset Augmentation with δ-CS) : </b> We apply δ-CS to query batched data {x<sub>i</sub>}<sup>B</sup><sub>i=1</sub> to the oracle y<sub>i</sub> = f(x<sub>i</sub>). Then the offline dataset is augmented as: Dt ⟸ D<sub>t−1</sub> U {(x<sub>i</sub>,y<sub>i</sub>)}<sup>B</sup><sub>i=1</sub> <a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>
-
 ### 3. Proxy Training
 
 We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. We follow previos studies<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a> to use the initial dataset D<sub>0</sub>.
@@ -113,7 +109,19 @@ $$
 The policy is trained to minimise the Trajectory balance (TB) Loss, which enforces consistency between forward and backward probabilities and rewards. However, the main challenge is that proxy models can produce highly unreliable rewards for out-of-distribution sequences. Training on such trajectories can destabilize learning and degrade performance. The δ-CS comes into play here.
 
 $$
-\mathcal{L}_{\mathrm{TB}}(\tau; \theta) = \left(\log \frac{Z_\theta \, P_F(\tau; \theta)}{R(x; \phi)}\right)^2,
+\mathcal{L}_{\mathrm{TB}}(\tau; \theta) = \left(\log \frac{Z_\theta \, P_F(\tau; \theta)}{R(x; \phi)}\right)^2
+$$
+
+### 6. δ-Conservative Search (δ-CS)
+
+δ-CS is an off policy search method which modifies off-policy trajectory generation and enables controllable exploaration in the search space through a control parameter δ. The δ defines the probability of masking the tokens in the noise injection step. The Algorithm proceeds as follows :-
+
+#### 6.1 Sampling high scoring offline sequences
+
+To start from reliable points, sequences are sampled from a rank-based reweighted prior. Ee sample a reference sequence x from the prior distribution P<sub>D<sub>t-1</sub></sub>. Higher-ranked sequences are always assigned greater weights. This biases exploration toward promising regions while still allowing diversity. We use rank-based prioritization <a href="#ref-3" title="(2020) Sample-efficient optimization in the latent space of deep generative models via weighted retraining. In Advances in Neural Information Processing Systems (NeurIPS)">[3]</a>
+
+$$
+w(x; \mathcal{D}_{t-1}, k) \propto \frac{1}{kN + \mathrm{rank}_{f,\mathcal{D}_{t-1}}(x)}
 $$
 
 
@@ -143,7 +151,7 @@ $$
 
 1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
 2. Jain, M., Bengio, E., Hernandez-Garcia, A., Rector-Brooks, J., Dossou, B. F., Ekbote, C. A., Fu, J., Zhang, T., Kilgour, M., Zhang, D., et al. (2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML).  
-3. Xu, M., Wang, Y., Hu, W., & Leskovec, J. (2021). GeoDiff: A Geometric Diffusion Model for Molecular Conformation Generation. *ICLR 2022*. https://arxiv.org/abs/2203.02923  
+3. Tripp, A., Daxberger, E., and Hern´ andez-Lobato, J. M. (2020) Sample-efficient optimization in the latent space of deep generative models via weighted retraining. In Advances in Neural Information Processing Systems (NeurIPS).  
 4. Lu, C., Wu, H., Shen, R., & Cao, Y. (2021). Pocket2Mol: Efficient Molecular Generation Based on Binding Pockets. *NeurIPS 2021*. https://arxiv.org/abs/2110.07875  
 5. Ganea, O.-E., Huang, J., Bunne, C., & Krause, A. (2021). Independent SE(3)-Equivariant Models for End-to-End Rigid Protein Docking. *arXiv preprint arXiv:2111.07786*. https://arxiv.org/abs/2111.07786  
 6. Zhavoronkov, A., Ivanenkov, Y. A., Aliper, A., et al. (2019). Deep learning enables rapid identification of potent DDR1 kinase inhibitors. *Nature Biotechnology*, 37(9), 1038–1040. https://doi.org/10.1038/s41587-019-0224-x  
