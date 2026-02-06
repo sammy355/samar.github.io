@@ -64,11 +64,11 @@ The central idea of this paper is Delta-Conservative Search, abbreviated as δ-C
 
 To further improve effectiveness of the search, δ-CS adapts δ based on the uncertainty of the proxy model. When the proxy is uncertain, exploration is automatically restricted and when it is confident, broader exploration is allowed. This adaptive conservativeness enables δ-CS to balance novelty and reliability, leading to more stable training and higher-quality sequence discovery across diverse biological design tasks.
 
-### Problem Formulation
+### 1. Problem Formulation
 
 We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V<sup>L</sup> ⟹ R. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
 
-### Active Learning for Biological Sequence Design
+### 2. Active Learning for Biological Sequence Design
 
 Biological sequence design often face problems due to limited experimental budgets, which makes it difficult to evaluate large numbers of candidate sequences using expensive laboratory testings. To address this, this paper adopts an active learning framework that iteratively improves both the predictive model and the generative policy using a small number of carefully selected queries. We will use some previous studeies for the Active Learning<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>.
 
@@ -84,7 +84,7 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 <b>Step C (Offline Dataset Augmentation with δ-CS) : </b> We apply δ-CS to query batched data {x<sub>i</sub>}<sup>B</sup><sub>i=1</sub> to the oracle y<sub>i</sub> = f(x<sub>i</sub>). Then the offline dataset is augmented as: Dt ⟸ D<sub>t−1</sub> U {(x<sub>i</sub>,y<sub>i</sub>)}<sup>B</sup><sub>i=1</sub> <a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>
 
-### Proxy Training
+### 3. Proxy Training
 
 We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. We follow previos studies<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a> to use the initial dataset D<sub>0</sub>.
 
@@ -92,7 +92,16 @@ $$
 \mathcal{L}(\phi)=\mathbb{E}_{x \sim P_{D_{t-1}}(x)}\left[\left( f(x) - f_{\phi}(x) \right)^2\right]
 $$
 
-### Policy Training with δ-CS
+### 4. Policy Training with δ-CS
+
+The policy responsible for generating new biological sequences is trained using Generative Flow Networks (GFlowNets), an off-policy reinforcement learning framework designed to sample diverse high quality sequences. In this setting, the policy learns to generate sequences with probability proportional to a reward which is provided by proxy model.
+
+$$
+p(x;\theta) \propto R(x;\phi) = F(x;\phi)
+$$
+
+A major challenge in policy training is that proxy models can be highly unreliable for out-of-distribution (OOD) sequences, which can destabilize learning. To solve this problem, δ-Conservative Search (δ-CS) is integrated directly into policy training. Instead of training only on fully generated sequences, the policy is trained on trajectories obtained by first disturbing high-scoring offline sequences and then reconstructing them.
+
 
 ## Adaptive Conservativeness Using Uncertainty
 
