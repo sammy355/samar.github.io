@@ -148,7 +148,7 @@ P_F(\hat{s}_t \mid \hat{s}_{t-1}; \theta), & \tilde{e}_t = \text{[MASK]}.
 $$
 
 
-After that, to obtain a fully reconstructed sequence X = ŝ<sub>L</sub> we sample from denoising policy :
+After that, to obtain a fully reconstructed sequence \tilde{x} = ŝ<sub>L</sub> we sample from denoising policy :
 
 $$
 P_{\text{denoise}}(\hat{x} \mid \tilde{x}; \theta) = \prod_{t=1}^{L} P_{\text{denoise}}(\hat{e}_t \mid \hat{s}_{t-1}, \tilde{x}; \theta).
