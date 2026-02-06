@@ -88,8 +88,11 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. 
 
+$$
+\mathcal{L}(\theta) = \mathbb{E}_{\mathbf{x}^{(t)} \sim P_{D_{t-1}}}\left[\left(\mathbf{x}^{(t+1)}-\left(\mathbf{x}^{(t)} + \eta \cdot s_\theta(\mathbf{x}^{(t)}, t, C)\right)\right)^2\right]
+$$
 
-<center>L(ϕ) = E<sub>x∼P<sub>D<sub>t−1</sub></sub>(x)</sub>{[f(x) − fϕ(x)]<sup>2</sup>}</center>
+<!-- <center>L(ϕ) = E<sub>x∼P<sub>D<sub>t−1</sub></sub>(x)</sub>{[f(x) − fϕ(x)]<sup>2</sup>}</center> -->
 
 
 
