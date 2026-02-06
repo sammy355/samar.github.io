@@ -139,8 +139,7 @@ In this step, the masked sequences from the previous step is reconstructed seque
 The probability of denoising next token ĕ<sub>t</sub> from previously denoised subsquence ŝ<sub>t−1</sub> is :
 
 $$
-P_{\text{denoise}}(\hat{x} \mid \tilde{x}; \theta)
-=
+P_{\text{denoise}}(\hat{x} \mid \tilde{x}; \theta) =
 \prod_{t=1}^{L}
 \begin{cases}
 \mathbb{I}\{\hat{e}_t = \tilde{e}_t\}, & \tilde{e}_t \neq \text{[MASK]}, \\[6pt]
