@@ -19,7 +19,7 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 ## Table of Contents
 
 - [Introduction and Motivation](#introduction-and-motivation)  
-- [Reinforcement Learning for Sequence Design](#reinforcement-learning-for-Sequence-design)
+- [Reinforcement Learning for Sequence Design](#reinforcement-learning-for-sequence-design)
 - [The Core Problem: Proxy Misspecification](#the-core-problem-proxy-misspecification)  
 - [Key Idea: Delta Conservative Search](#key-idea-delta-conservative-search)  
 - [Adaptive Conservativeness Using Uncertainty](#adaptive-conservativeness-using-uncertainty)  
