@@ -84,7 +84,7 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 <b>Step B (Policy Training with δ-CS) : </b> We train a generative policy p(x; θ) using the proxy model fϕ(x) and the dataset D<sub>t−1</sub> with δ-CS.
 
-<b>Step C (Offline Dataset Augmentation with δ-CS) : </b> We apply δ-CS to query batched data {x<sub>i</sub>}<sup>B</sup><sub>i=1</sub> to the oracle y<sub>i</sub> = f(x<sub>i</sub>). Then the offline dataset is augmented as: Dt ⟸ D<sub>t−1</sub> U {(x<sub>i</sub>,y<sub>i</sub>)}<sup>B</sup><sub>i=1</sub>
+<b>Step C (Offline Dataset Augmentation with δ-CS) : </b> We apply δ-CS to query batched data {x<sub>i</sub>}<sup>B</sup><sub>i=1</sub> to the oracle y<sub>i</sub> = f(x<sub>i</sub>). Then the offline dataset is augmented as: Dt ⟸ D<sub>t−1</sub> U {(x<sub>i</sub>,y<sub>i</sub>)}<sup>B</sup><sub>i=1</sub> <a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>
 
 
 ## Adaptive Conservativeness Using Uncertainty
