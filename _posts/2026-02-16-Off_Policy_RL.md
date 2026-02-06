@@ -162,6 +162,8 @@ $$
 \delta(x;\sigma) = \delta_{\mathrm{const.}} - \lambda \sigma(x)
 $$
 
+where σ(x) denotes the uncertainty of the proxy model's prediction for sequence x, δ<sub>const</sub> is a base conservativeness level, and λ controls the strength of the adjustment. The resulting value is clamped to remain within [0,1]. This encourages more conservative search when the proxy is uncertain, restricting exploration to nearby, reliable regions, while allowing broader exploration when the proxy is confident. By aligning the search behaviour with model confidence, adaptive conservativeness improves effectiveness against proxy misspecification and leads to more stable and effective policy training.
+
 
 ## Experimental Setup and Benchmarks
 
