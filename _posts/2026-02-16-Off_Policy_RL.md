@@ -167,6 +167,25 @@ where σ(x) denotes the uncertainty of the proxy model's prediction for sequence
 
 ## Experimental Setup and Benchmarks
 
+To validate the effectiveness of our δ-Conservative Search (δ-CS), we conducted extensive experiments across a variety of biological sequence design tasks, including DNA, RNA, protein, and peptide design. Our goal was to evaluate whether δ-CS could consistently improve upon existing methods, particularly in settings where proxy models are prone to failure. Firstly, we investigate proxy failures and the impact of our conservative search by applying δ-CS to GFN-AL. Secondly, we evaluate our algorithm's performace and compare it to other baselines.
+
+### 1. Hard TF-Bind 8
+
+The task is called Hard TF-Bind 8. In this task we aim to generate DNA sequences (length L= 8) having maximize binding affinity. We collect the initial dataset near a certain sequence. The sequences in initial dataset have lower scores than the given sequence. We then form a dataset D0 of size 1,024. Also we modify the score landscape to assign zero to sequence scoring < 0.3. It follows Real world design where search space is vast with limited data availability.
+
+### 2. FLEXS Benchmark
+
+In this experiment we compare the performace of our algorithm with other baselines. The architecture of the proxy model used is as follows. We employ a convolutional neural network (CNN) with one-dimensional convolutions according to <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a>. We use a UCB acquisition function and measure the uncertainty with an ensemble of three network instances. We use representative exploration algorithms and use same architecture to implement proxy models for all baselines, except for GFlowNets Active Learning which uses original implementation.
+
+<b>Baselines :-</b>
+
+<b>AdaLead : </b> It is an evolutionary type method that employs adaptive greedy search with hill climbing.
+<b>Bayesian optimization : </b> Black-box optimization algorithm
+<b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization
+<b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy
+<b>CbAS and DbAS : </b> It is a model based technique which has variational auto encoder with trust regions.
+<b>DyNA PPO : </b> It is an On-policy RL method for proximal policy optimization with proxy
+<b>GFN-AL : </b> It is an Off-policy RL method which has GFlowNets with Bayesian active learning
 
 ## Results
 
@@ -188,7 +207,7 @@ where σ(x) denotes the uncertainty of the proxy model's prediction for sequence
 1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
 2. Jain, M., Bengio, E., Hernandez-Garcia, A., Rector-Brooks, J., Dossou, B. F., Ekbote, C. A., Fu, J., Zhang, T., Kilgour, M., Zhang, D., et al. (2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML).  
 3. Tripp, A., Daxberger, E., and Hern´ andez-Lobato, J. M. (2020) Sample-efficient optimization in the latent space of deep generative models via weighted retraining. In Advances in Neural Information Processing Systems (NeurIPS).  
-4. Lu, C., Wu, H., Shen, R., & Cao, Y. (2021). Pocket2Mol: Efficient Molecular Generation Based on Binding Pockets. *NeurIPS 2021*. https://arxiv.org/abs/2110.07875  
+4. Sinai, S., Wang, R., Whatley, A., Slocum, S., Locane, E.,and Kelsic, E. D. (2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design. 
 5. Ganea, O.-E., Huang, J., Bunne, C., & Krause, A. (2021). Independent SE(3)-Equivariant Models for End-to-End Rigid Protein Docking. *arXiv preprint arXiv:2111.07786*. https://arxiv.org/abs/2111.07786  
 6. Zhavoronkov, A., Ivanenkov, Y. A., Aliper, A., et al. (2019). Deep learning enables rapid identification of potent DDR1 kinase inhibitors. *Nature Biotechnology*, 37(9), 1038–1040. https://doi.org/10.1038/s41587-019-0224-x  
 7. Berman, H. M., et al. (2000). The Protein Data Bank. *Nucleic Acids Research*, 28(1), 235–242. https://doi.org/10.1093/nar/28.1.235  
