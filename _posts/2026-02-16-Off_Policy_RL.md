@@ -129,7 +129,8 @@ $$
 In this step we introduce some noise into the obtained sequence from previosu step. In this step we use a noise injection policy which masks each individual token with a probability δ. This ultimately determines how much of the original sequence is preserved. Smaller δ values result in conservation , while larger values encourage more exploration (δ ∈ [0,1]). 
 
 $$
-P_{\text{noise}}(\tilde{x} \mid x, \delta) = \prod_{i=1}^{L} \left[\delta \cdot \mathbb{I}\{\tilde{e}_i = \text{[MASK]}\}+(1 - \delta) \cdot \mathbb{I}\{\tilde{e}_i= e_i\}\right]
+P_{\text{noise}}(\tilde{x} \mid x, \delta) = \prod_{i=1}^{L} \left[\delta \cdot \mathbb{I} \{\tilde{e}_i = \text{[MASK]} \}+(1 - \delta) \cdot \mathbb{I}
+\{\tilde{e}_i= e_i \}\right]
 $$
 
 
