@@ -102,13 +102,21 @@ $$
 
 GFlowNets are generative models that learn a probability distribution over solutions rather than optimizing for a single best sequence. Each partial sequence is treated as a state, and actions correspond to adding tokens. Once a complete sequence is formed, it receives a reward. But, a major challenge in policy training is that proxy models can be highly unreliable for out-of-distribution (OOD) sequences, which can destabilize learning. To solve this problem, δ-Conservative Search (δ-CS) is integrated directly into policy training. Instead of training only on fully generated sequences, the policy is trained on trajectories obtained by first disturbing high-scoring offline sequences and then reconstructing them.
 
-#### 4.1 Policy
+### 5. Policy and Learning Objective.
 
-The policy consists of two components, a forward policy (P<sub>F</sub>) and a backward policy (P<sub>B</sub>). The forward Policy generates sequences token by token. It starts with an empty sequence (s<sub>0</sub>). After L steps we get the full sequence ((s<sub>L</sub>) = x), where L is the sequence length.
+The policy consists of two components, a forward policy (P<sub>F</sub>) and a backward policy (P<sub>B</sub>). The forward Policy generates sequences token by token. It starts with an empty sequence (s<sub>0</sub>). After L steps we get the full sequence (s<sub>L</sub> = x), where L is the sequence length. The backward policy is used for modelling the probability of backtracking from the terminal state. The backward policy is deterministic, which simplifies training and makes GFlowNets equivalent to certain soft off-policy RL methods.
 
 $$
 P_F(\tau; \theta) = \prod_{i=1}^{L} P_F(s_i \mid s_{i-1}; \theta)
 $$
+
+The policy is trained to minimise the Trajectory balance (TB) Loss, which enforces consistency between forward and backward probabilities and rewards. However, the main challenge is that proxy models can produce highly unreliable rewards for out-of-distribution sequences. Training on such trajectories can destabilize learning and degrade performance. The δ-CS comes into play here.
+
+$$
+\mathcal{L}_{\mathrm{TB}}(\tau; \theta) = \left(\log \frac{Z_\theta \, P_F(\tau; \theta)}{R(x; \phi)}\right)^2,
+$$
+
+
 
 ## Adaptive Conservativeness Using Uncertainty
 
