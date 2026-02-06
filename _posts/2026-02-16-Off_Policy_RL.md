@@ -70,7 +70,7 @@ We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. am
 
 ### Active Learning for Biological Sequence Design
 
-Biological sequence design often face problems due to limited experimental budgets, which makes it difficult to evaluate large numbers of candidate sequences using expensive laboratory testings. To address this, this paper adopts an active learning framework that iteratively improves both the predictive model and the generative policy using a small number of carefully selected queries.
+Biological sequence design often face problems due to limited experimental budgets, which makes it difficult to evaluate large numbers of candidate sequences using expensive laboratory testings. To address this, this paper adopts an active learning framework that iteratively improves both the predictive model and the generative policy using a small number of carefully selected queries. We will use some previous studeies for the Active Learning<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>.
 
 ![Figure 1: Active Learning for biological sequence design.]({{ site.baseurl }}/images/Fig1.png)
 *Figure 1: Active Learning for biological sequence design.*
@@ -86,7 +86,7 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 ### Policy Training
 
-We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. we follow previos studies<a href="#ref-2" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a> to use the initial dataset D<sub>0</sub>. D<sub>t</sub> is the dataset at active round t.
+We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. We follow previos studies<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a> to use the initial dataset D<sub>0</sub>. D<sub>t</sub> is the dataset at active round t.
 
 $$
 \mathcal{L}(\phi)=\mathbb{E}_{x \sim P_{D_{t-1}}(x)}\left[\left( f(x) - f_{\phi}(x) \right)^2\right]
@@ -121,7 +121,7 @@ $$
 ## References
 
 1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
-2. Satorras, V. G., Hoogeboom, E., Fuchs, F. B., & Welling, M. (2021). E(n) Equivariant Graph Neural Networks. *arXiv preprint arXiv:2102.09844*. https://arxiv.org/abs/2102.09844  
+2. Jain, M., Bengio, E., Hernandez-Garcia, A., Rector-Brooks, J., Dossou, B. F., Ekbote, C. A., Fu, J., Zhang, T., Kilgour, M., Zhang, D., et al. (2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML).  
 3. Xu, M., Wang, Y., Hu, W., & Leskovec, J. (2021). GeoDiff: A Geometric Diffusion Model for Molecular Conformation Generation. *ICLR 2022*. https://arxiv.org/abs/2203.02923  
 4. Lu, C., Wu, H., Shen, R., & Cao, Y. (2021). Pocket2Mol: Efficient Molecular Generation Based on Binding Pockets. *NeurIPS 2021*. https://arxiv.org/abs/2110.07875  
 5. Ganea, O.-E., Huang, J., Bunne, C., & Krause, A. (2021). Independent SE(3)-Equivariant Models for End-to-End Rigid Protein Docking. *arXiv preprint arXiv:2111.07786*. https://arxiv.org/abs/2111.07786  
