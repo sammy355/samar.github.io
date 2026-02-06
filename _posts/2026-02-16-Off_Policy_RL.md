@@ -197,7 +197,7 @@ For each task, we conduct 10 active learning rounds. Starting from the initial d
 
 #### 2.1 RNA Sequence design
 
-The goal is to design an RNA sequence that binds to the target with lowest binding energy. We measure the quality by ViennaRNA algorithm <a href="#ref-5" title="(2011) ViennaRNA package 2.0. Algorithms for molecular biology">[5]</a>. The length (L) of RNA is set to 14, with 4 tokens. There are three RNA binding tasks, namely RNA-A, RNA-B, and RNA-C.  Initial datasets consist of 5,000 randomly generated sequences and offline dataset provided in <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[5]</a>. δ is set to 0.5 and λ is set to 5.
+The goal is to design an RNA sequence that binds to the target with lowest binding energy. We measure the quality by ViennaRNA algorithm <a href="#ref-5" title="(2011) ViennaRNA package 2.0. Algorithms for molecular biology">[5]</a>. The length (L) of RNA is set to 14, with 4 tokens. There are three RNA binding tasks, namely RNA-A, RNA-B, and RNA-C.  Initial datasets consist of 5,000 randomly generated sequences and offline dataset provided in <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. δ is set to 0.5 and λ is set to 5.
 
 #### 2.2 DNA Sequence Design
 
