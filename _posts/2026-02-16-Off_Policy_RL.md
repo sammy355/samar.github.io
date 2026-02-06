@@ -58,6 +58,16 @@ This can lead to assigning greater reward to the sequence which may look promisi
 
 ## Key Idea: Delta Conservative Search
 
+The central idea of this paper is Delta-Conservative Search, abbreviated as δ-CS. It is designed specifically to improve off-policy reinforcement learning methods like GFlowNets when proxy models are unreliable. The key intuition is simple, instead of exploring the entire sequence space blindly, we restrict exploration to regions where the proxy is more trustworthy. 
+
+δ-CS operates by starting from high-scoring sequences in the offline dataset and injecting noise in those sequences. Each token in a sequence is independently masked with probability δ, where δ controls the degree of conservativeness. A smaller δ results in minor changes in the original sequence, while a larger δ allows more exploration as it changes the sequence to a larger extent. The masked sequences are then denoised sequentially using a GFlowNet policy, producing new candidate sequences that remain close to known high-quality sequences.
+
+To further improve effectiveness of the search, δ-CS adapts δ based on the uncertainty of the proxy model. When the proxy is uncertain, exploration is automatically restricted and when it is confident, broader exploration is allowed. This adaptive conservativeness enables δ-CS to balance novelty and reliability, leading to more stable training and higher-quality sequence discovery across diverse biological design tasks.
+
+### Problem Formulation
+
+We want to find sequences x ∈ V^L, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V^L -> R. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
+
 
 
 ## Adaptive Conservativeness Using Uncertainty
