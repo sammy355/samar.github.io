@@ -193,6 +193,14 @@ In this experiment we compare the performace of our algorithm with other baselin
 
 <b>GFN-AL : </b> It is an Off-policy RL method which has GFlowNets with Bayesian active learning
 
+For each task, we conduct 10 active learning rounds. Starting from the initial dataset D<sub>0</sub> with all of the query batch size as 128. To evaluate the performance, we measure the maximum, median, and mean scores of Top K sequences.
+
+#### 2.1 RNA Sequence design
+
+The goal is to design an RNA sequence that binds to the target with lowest binding energy. We measure the quality by ViennaRNA algorithm <a href="#ref-5" title="(2011) ViennaRNA package 2.0. Algorithms for molecular biology">[5]</a>. The length (L) of RNA is set to 14, with 4 tokens. There are three RNA binding tasks, namely RNA-A, RNA-B, and RNA-C.  Initial datasets consist of 5,000 randomly generated sequences and offline dataset provided in <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[5]</a>. δ is set to 0.5 and λ is set to 5.
+
+#### 2.2 DNA Sequence Design
+
 ## Results
 
 
@@ -214,9 +222,8 @@ In this experiment we compare the performace of our algorithm with other baselin
 2. Jain, M., Bengio, E., Hernandez-Garcia, A., Rector-Brooks, J., Dossou, B. F., Ekbote, C. A., Fu, J., Zhang, T., Kilgour, M., Zhang, D., et al. (2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML).  
 3. Tripp, A., Daxberger, E., and Hern´ andez-Lobato, J. M. (2020) Sample-efficient optimization in the latent space of deep generative models via weighted retraining. In Advances in Neural Information Processing Systems (NeurIPS).  
 4. Sinai, S., Wang, R., Whatley, A., Slocum, S., Locane, E.,and Kelsic, E. D. (2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design. 
-5. Ganea, O.-E., Huang, J., Bunne, C., & Krause, A. (2021). Independent SE(3)-Equivariant Models for End-to-End Rigid Protein Docking. *arXiv preprint arXiv:2111.07786*. https://arxiv.org/abs/2111.07786  
-6. Zhavoronkov, A., Ivanenkov, Y. A., Aliper, A., et al. (2019). Deep learning enables rapid identification of potent DDR1 kinase inhibitors. *Nature Biotechnology*, 37(9), 1038–1040. https://doi.org/10.1038/s41587-019-0224-x  
-7. Berman, H. M., et al. (2000). The Protein Data Bank. *Nucleic Acids Research*, 28(1), 235–242. https://doi.org/10.1093/nar/28.1.235  
-8. Huuskonen, J. (2000). Estimation of Aqueous Solubility for a Diverse Set of Organic Compounds Based on Molecular Topology. *Journal of Chemical Information and Computer Sciences*, 40(3), 773–777. https://doi.org/10.1021/ci990307l  
+5. Lorenz, R., Bernhart, S. H., H¨ oner zu Siederdissen, C., Tafer, H., Flamm, C., Stadler, P. F., and Hofacker, I. L. (2011) ViennaRNA package 2.0. Algorithms for molecular biology,6:1–14.
+6. Kim, M., Berto, F., Ahn, S., and Park, J. (2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS).  
+7. Trabucco, B., Geng, X., Kumar, A., and Levine, S. (2022) DesignBench: Benchmarks for data-driven offline model-based optimization. In International Conference on Machine Learning (ICML).
 
 
