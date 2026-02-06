@@ -86,7 +86,7 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 ### Policy Training
 
-We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. 
+We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. we follow previos studies<a href="#ref-2" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a> to use the initial dataset D<sub>0</sub>. D<sub>t</sub> is the dataset at active round t.
 
 $$
 \mathcal{L}(\phi)=\mathbb{E}_{x \sim P_{D_{t-1}}(x)}\left[\left( f(x) - f_{\phi}(x) \right)^2\right]
