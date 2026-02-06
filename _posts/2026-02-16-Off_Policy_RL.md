@@ -66,7 +66,7 @@ To further improve effectiveness of the search, δ-CS adapts δ based on the unc
 
 ### Problem Formulation
 
-We want to find sequences x ∈ V^L, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V^L -> R. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
+We want to find sequences x ∈ V <sup>L</sup>, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V^L -> R. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
 
 
 
