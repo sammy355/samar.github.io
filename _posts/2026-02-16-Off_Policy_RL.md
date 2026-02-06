@@ -100,8 +100,15 @@ $$
 p(x;\theta) \propto R(x;\phi) = F(x;\phi)
 $$
 
-A major challenge in policy training is that proxy models can be highly unreliable for out-of-distribution (OOD) sequences, which can destabilize learning. To solve this problem, δ-Conservative Search (δ-CS) is integrated directly into policy training. Instead of training only on fully generated sequences, the policy is trained on trajectories obtained by first disturbing high-scoring offline sequences and then reconstructing them.
+GFlowNets are generative models that learn a probability distribution over solutions rather than optimizing for a single best sequence. Each partial sequence is treated as a state, and actions correspond to adding tokens. Once a complete sequence is formed, it receives a reward. But, a major challenge in policy training is that proxy models can be highly unreliable for out-of-distribution (OOD) sequences, which can destabilize learning. To solve this problem, δ-Conservative Search (δ-CS) is integrated directly into policy training. Instead of training only on fully generated sequences, the policy is trained on trajectories obtained by first disturbing high-scoring offline sequences and then reconstructing them.
 
+#### 4.1 Policy
+
+The policy consists of two components, a forward policy (P<sub>F</sub>) and a backward policy (P<sub>B</sub>). The forward Policy generates sequences token by token. It starts with an empty sequence (s<sub>0</sub>). After L steps we get the full sequence ((s<sub>L</sub>) = x), where L is the sequence length.
+
+$$
+P_F(\tau; \theta) = \prod_{i=1}^{L} P_F(s_i \mid s_{i-1}; \theta)
+$$
 
 ## Adaptive Conservativeness Using Uncertainty
 
