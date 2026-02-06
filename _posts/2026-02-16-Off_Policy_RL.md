@@ -180,11 +180,17 @@ In this experiment we compare the performace of our algorithm with other baselin
 <b>Baselines :-</b>
 
 <b>AdaLead : </b> It is an evolutionary type method that employs adaptive greedy search with hill climbing.
+
 <b>Bayesian optimization : </b> Black-box optimization algorithm
+
 <b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization
+
 <b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy
+
 <b>CbAS and DbAS : </b> It is a model based technique which has variational auto encoder with trust regions.
+
 <b>DyNA PPO : </b> It is an On-policy RL method for proximal policy optimization with proxy
+
 <b>GFN-AL : </b> It is an Off-policy RL method which has GFlowNets with Bayesian active learning
 
 ## Results
