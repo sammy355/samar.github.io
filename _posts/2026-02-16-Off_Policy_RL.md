@@ -72,7 +72,7 @@ We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. am
 
 Biological sequence design is often face problems due to limited experimental budgets, which makes it difficult to evaluate large numbers of candidate sequences using expensive laboratory testings. To address this, this paper adopts an active learning framework that iteratively improves both the predictive model and the generative policy using a small number of carefully selected queries.
 
-![Figure 1: Active Learning for biological sequence design.]({{ site.baseurl }}/images/Fig1.png)
+[Figure 1: Active Learning for biological sequence design.]({{ site.baseurl }}/images/Fig1.png)
 *Figure 1: Active Learning for biological sequence design.*
 
 
