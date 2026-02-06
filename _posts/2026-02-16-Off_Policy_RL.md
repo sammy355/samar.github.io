@@ -72,7 +72,9 @@ We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. am
 
 Biological sequence design is often face problems due to limited experimental budgets, which makes it difficult to evaluate large numbers of candidate sequences using expensive laboratory testings. To address this, this paper adopts an active learning framework that iteratively improves both the predictive model and the generative policy using a small number of carefully selected queries.
 
-![Figure 1: Workflow of DiffSBDD from protein pocket input to 3D ligand generation via equivariant diffusion.]({{ site.baseurl }}/images/fig1.png)
+![Figure 1: Active Learning for biological sequence design.]({{ site.baseurl }}/images/Fig1.png)
+*Figure 1: Active Learning for biological sequence design.*
+
 
 The active learning process has multiple rounds. In each round, a proxy model is trained on the currently available dataset (<i>Fig 1 : Step A</i>) to approximate the true oracle that evaluates sequence quality. This proxy enables rapid reward estimation and guides the search process. Next, a generative policy (<i>Fig 1 : Step B</i>), implemented using Generative Flow Networks (GFlowNets), is trained to propose promising new sequences based on the proxy’s predictions. Most important, this step intergates δ-Conservative Search with GFlowNets, ensuring that proposed sequences remain within trustworthy regions of the search space.
 
