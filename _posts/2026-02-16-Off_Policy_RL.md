@@ -84,18 +84,15 @@ Finally, a batch of generated sequences is evaluated using the true oracle, and 
 
 <b>Step C (Offline Dataset Augmentation with δ-CS) : </b> We apply δ-CS to query batched data {x<sub>i</sub>}<sup>B</sup><sub>i=1</sub> to the oracle y<sub>i</sub> = f(x<sub>i</sub>). Then the offline dataset is augmented as: Dt ⟸ D<sub>t−1</sub> U {(x<sub>i</sub>,y<sub>i</sub>)}<sup>B</sup><sub>i=1</sub> <a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>
 
-### Policy Training
+### Proxy Training
 
-We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. We follow previos studies<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a> to use the initial dataset D<sub>0</sub>. D<sub>t</sub> is the dataset at active round t.
+We train a proxy model fϕ(x) using the offline dataset D<sub>t−1</sub> at round t. We focus on minimising the mean squared error loss. We follow previos studies<a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a> to use the initial dataset D<sub>0</sub>.
 
 $$
 \mathcal{L}(\phi)=\mathbb{E}_{x \sim P_{D_{t-1}}(x)}\left[\left( f(x) - f_{\phi}(x) \right)^2\right]
 $$
 
-<!-- <center>L(ϕ) = E<sub>x∼P<sub>D<sub>t−1</sub></sub>(x)</sub>{[f(x) − fϕ(x)]<sup>2</sup>}</center> -->
-
-
-
+### Policy Training with δ-CS
 
 ## Adaptive Conservativeness Using Uncertainty
 
