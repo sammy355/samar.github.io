@@ -246,7 +246,8 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.030 ± 0.024     | 0.838 ± 0.013     | 0.849 ± 0.013     | 6.983 ± 0.159     | 7.398 ± 0.024    |
 | GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | **7.406 ± 0.066**|
 
-
+<br/>
+<br/>
 
 ![Figure 5: The max, median, and mean curve over rounds in RNA-B.]({{ site.baseurl }}/images/Fig5.png)
 *Figure 5: The max, median, and mean curve over rounds in RNA-B.*
