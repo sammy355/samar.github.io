@@ -225,7 +225,8 @@ When we introduced δ-CS in this experiment, we clearly see the results improvin
 
 ### Experiment 2 : FLEXS Benchmark
 
-**RNA Sequence Design : **
+**RNA Sequence Design**
+
 Results shows that our algorithm is outperforming all other baselines for RNA designing tasks. We have three types RNA-A, RNA-B and RNA-C, in all the three types our method with GFlowNets Active Learning with δ-CS is standing as the top performer. We can see the comparison in Fig.4 for RNA-A, Fig.5 for RNA-B and Fig.6 for RNA-C. The values depicted in the graph are available in the tables below the graph respectively.
 
 ![Figure 4: The max, median, and mean curve over rounds in RNA-A.]({{ site.baseurl }}/images/Fig4.png)
@@ -288,7 +289,8 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 <br/>
 <br/>
 
-**DNA Sequence Design : **
+**DNA Sequence Design**
+
 In this task, we see in the results that GFN-AL is performing well without δ-CS. However, when we intergrate δ-CS with GFN-AL, it performs slighly better that all other baselines (Fig.7).
 
 ![Figure 7: The max, median, and mean curve over rounds in DNA (TF-Bind-8).]({{ site.baseurl }}/images/Fig7.png)
