@@ -246,7 +246,6 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | **7.406 ± 0.066**|
 
 \
-\
 
 ![Figure 5: The max, median, and mean curve over rounds in RNA-B.]({{ site.baseurl }}/images/Fig5.png)
 *Figure 5: The max, median, and mean curve over rounds in RNA-B.*
@@ -264,7 +263,6 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.001 ± 0.016     | 0.858 ± 0.004     | 0.870 ± 0.006     | 6.599 ± 0.384     | **7.673 ± 0.043**|
 | GFN-AL + δ-CS   | **1.014 ± 0.001** | **0.929 ± 0.004** | **0.934 ± 0.003** | 5.644 ± 0.307     | 7.661 ± 0.064    |
 
-\
 \
 
 ![Figure 6: The max, median, and mean curve over rounds in RNA-C.]({{ site.baseurl }}/images/Fig6.png)
@@ -325,7 +323,6 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL          | 3.578 ± 0.003     | 3.511 ± 0.006     | 3.508 ± 0.004     | 60.278 ± 0.819    | **20.837 ± 0.916**|
 | GFN-AL + δ-CS   | **3.592 ± 0.003** | **3.567 ± 0.003** | **3.569 ± 0.003** | 46.255 ± 10.534   | 17.459 ± 5.538    |
 
-\
 \
 
 ![Figure 9: The max, median, and mean curve over rounds in AAV.]({{ site.baseurl }}/images/Fig9.png)
