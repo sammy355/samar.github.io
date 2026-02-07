@@ -245,6 +245,9 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.030 ± 0.024     | 0.838 ± 0.013     | 0.849 ± 0.013     | 6.983 ± 0.159     | 7.398 ± 0.024    |
 | GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | **7.406 ± 0.066**|
 
+\
+\
+
 ![Figure 5: The max, median, and mean curve over rounds in RNA-B.]({{ site.baseurl }}/images/Fig5.png)
 *Figure 5: The max, median, and mean curve over rounds in RNA-B.*
 
@@ -260,6 +263,9 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | DyNA PPO        | 0.730 ± 0.088     | 0.481 ± 0.028     | 0.499 ± 0.029     | 8.978 ± 0.196     | 5.839 ± 0.198    |
 | GFN-AL          | 1.001 ± 0.016     | 0.858 ± 0.004     | 0.870 ± 0.006     | 6.599 ± 0.384     | **7.673 ± 0.043**|
 | GFN-AL + δ-CS   | **1.014 ± 0.001** | **0.929 ± 0.004** | **0.934 ± 0.003** | 5.644 ± 0.307     | 7.661 ± 0.064    |
+
+\
+\
 
 ![Figure 6: The max, median, and mean curve over rounds in RNA-C.]({{ site.baseurl }}/images/Fig6.png)
 *Figure 6: The max, median, and mean curve over rounds in RNA-C.*
@@ -318,6 +324,9 @@ In this task, the search space was very large. The results shows that most of th
 | DyNA PPO        | 3.572 ± 0.000     | 3.378 ± 0.300     | 3.331 ± 0.000     | **62.955 ± 0.100**| 0.000 ± 0.010     |
 | GFN-AL          | 3.578 ± 0.003     | 3.511 ± 0.006     | 3.508 ± 0.004     | 60.278 ± 0.819    | **20.837 ± 0.916**|
 | GFN-AL + δ-CS   | **3.592 ± 0.003** | **3.567 ± 0.003** | **3.569 ± 0.003** | 46.255 ± 10.534   | 17.459 ± 5.538    |
+
+\
+\
 
 ![Figure 9: The max, median, and mean curve over rounds in AAV.]({{ site.baseurl }}/images/Fig9.png)
 *Figure 9: The max, median, and mean curve over rounds in AAV.*
