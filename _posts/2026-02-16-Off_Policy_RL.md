@@ -66,7 +66,7 @@ To further improve effectiveness of the search, δ-CS adapts δ based on the unc
 
 ### 1. Problem Formulation
 
-We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V<sup>L</sup> ⟹ R. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
+We want to find sequences x ∈ V<sup>L</sup>, Where V is the vocabulary (eg. amino acids or nucleotides) and L is the sequence length. We also look for some desired properties from these sequences such as binding affinity or enzymatic activity etc. These properties are evaluated by a black box oracle function ; f : V<sup>L</sup> ⟹ R <a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a><a href="#ref-8" title="(2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR)">[8]</a>. Evaluation of this function (f) is very costly and time consuming because it involves wet-lab experiments and simulations. 
 
 ### 2. Active Learning for Biological Sequence Design
 
@@ -106,7 +106,7 @@ $$
 P_F(\tau; \theta) = \prod_{i=1}^{L} P_F(s_i \mid s_{i-1}; \theta)
 $$
 
-The policy is trained to minimise the Trajectory balance (TB) Loss, which enforces consistency between forward and backward probabilities and rewards. However, the main challenge is that proxy models can produce highly unreliable rewards for out-of-distribution sequences. Training on such trajectories can destabilize learning and degrade performance. The δ-CS comes into play here.
+The policy is trained to minimise the Trajectory balance (TB) Loss, which enforces consistency between forward and backward probabilities and rewards. However, the main challenge is that proxy models can produce highly unreliable rewards for out-of-distribution sequences. Training on such trajectories can destabilize learning and degrade performance <a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>. The δ-CS comes into play here.
 
 $$
 \mathcal{L}_{\mathrm{TB}}(\tau; \theta) = \left(\log \frac{Z_\theta \, P_F(\tau; \theta)}{R(x; \phi)}\right)^2
@@ -179,19 +179,19 @@ In this experiment we compare the performace of our algorithm with other baselin
 
 <b>Baselines :-</b>
 
-<b>AdaLead : </b> It is an evolutionary type method that employs adaptive greedy search with hill climbing.
+<b>AdaLead : </b> It is an evolutionary type method that employs adaptive greedy search with hill climbing <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a>.
 
-<b>Bayesian optimization : </b> Black-box optimization algorithm
+<b>Bayesian optimization : </b> Black-box optimization algorithm.
 
-<b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization
+<b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization.
 
-<b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy
+<b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy.
 
 <b>CbAS and DbAS : </b> It is a model based technique which has variational auto encoder with trust regions.
 
-<b>DyNA PPO : </b> It is an On-policy RL method for proximal policy optimization with proxy
+<b>DyNA PPO : </b> It is an On-policy RL method for proximal policy optimization with proxy <a href="#ref-8" title="(2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR)">[8]</a>.
 
-<b>GFN-AL : </b> It is an Off-policy RL method which has GFlowNets with Bayesian active learning
+<b>GFN-AL : </b> It is an Off-policy RL method which has GFlowNets with Bayesian active learning <a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>.
 
 For each task, we conduct 10 active learning rounds. Starting from the initial dataset D<sub>0</sub> with all of the query batch size as 128. To evaluate the performance, we measure the maximum, median, and mean scores of Top K sequences.
 
@@ -205,7 +205,7 @@ For this task we follow the experimental setup from previous setup <a href="#ref
 
 #### 2.3 Protein Sequence Design
 
-We take two tasks for protien sequence design. Green fluorescent Protein (GFP) and Additive adeno-associated virus (AAV). GFP is a protein that has green fluorescence when it is exposed to light in ultraviolet range, and the objective of this task is to identify protein sequences with high log-fluorescence intensity values. AAV are small virus that affects humans and some other species. Many features make AAV an attractive candidate for gene therapy. In this task our aim is to discover sequences that lead to higher gene therapeutic efficiency.
+We take two tasks for protien sequence design. Green fluorescent Protein (GFP) <a href="#ref-9" title="(2016) Local fitness landscape of the green fluorescent protein. Nature">[9]</a> and Additive adeno-associated virus (AAV)<a href="#ref-10" title="(2019) Comprehensive AAV capsid fitness landscape reveals a viral gene and enables machine-guided design. Science">[10]</a>. GFP is a protein that has green fluorescence when it is exposed to light in ultraviolet range, and the objective of this task is to identify protein sequences with high log-fluorescence intensity values. AAV are small virus that affects humans and some other species. Many features make AAV an attractive candidate for gene therapy. In this task our aim is to discover sequences that lead to higher gene therapeutic efficiency.
 
 The vocabulary for both the tasks are defined as standard set of 20 amino acids, the initial dataset D<sub>0</sub> is generated by random mutation , we set δ to 0.05 and λ is set to 1. For GFP task, the sequence length (L) is 238 while for AAV task it is 90. The initial dataset for GFP task has approx. 10,200 sequences with a maximum score of 3.5 while for AAV task it is approx. 15,300 with maximum score being 0.5. 
 
@@ -224,6 +224,13 @@ The vocabulary for both the tasks are defined as standard set of 20 amino acids,
 <a id="ref-6"></a>
 <a id="ref-7"></a>
 <a id="ref-8"></a>
+<a id="ref-9"></a>
+<a id="ref-10"></a>
+<a id="ref-11"></a>
+<a id="ref-12"></a>
+<a id="ref-13"></a>
+<a id="ref-14"></a>
+
 ## References
 
 1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
@@ -233,5 +240,8 @@ The vocabulary for both the tasks are defined as standard set of 20 amino acids,
 5. Lorenz, R., Bernhart, S. H., H¨ oner zu Siederdissen, C., Tafer, H., Flamm, C., Stadler, P. F., and Hofacker, I. L. (2011) ViennaRNA package 2.0. Algorithms for molecular biology,6:1–14.
 6. Kim, M., Berto, F., Ahn, S., and Park, J. (2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS).  
 7. Trabucco, B., Geng, X., Kumar, A., and Levine, S. (2022) DesignBench: Benchmarks for data-driven offline model-based optimization. In International Conference on Machine Learning (ICML).
+8. Angermueller, C., Dohan, D., Belanger, D., Deshpande, R., Murphy, K., and Colwell, L. (2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR).
+9. Sarkisyan, K. S., Bolotin, D. A., Meer, M. V., Usmanova, D. R., Mishin, A. S., Sharonov, G. V., Ivankov, D. N.,Bozhanova, N. G., Baranov, M. S., Soylemez, O., et al. (2016) Local fitness landscape of the green fluorescent protein. Nature, 533(7603):397–401.
+10. Ogden, P. J., Kelsic, E. D., Sinai, S., and Church, G. M. (2019) Comprehensive AAV capsid fitness landscape reveals a viral gene and enables machine-guided design. Science, 366(6469):1139–1143.
 
 
