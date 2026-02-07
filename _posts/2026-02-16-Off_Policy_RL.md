@@ -232,7 +232,6 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 ![Figure 4: The max, median, and mean curve over rounds in RNA-A.]({{ site.baseurl }}/images/Fig4.png)
 *Figure 4: The max, median, and mean curve over rounds in RNA-A.*
 
-*Table 1. Results on RNA-A after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
@@ -246,13 +245,13 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.030 ± 0.024     | 0.838 ± 0.013     | 0.849 ± 0.013     | 6.983 ± 0.159     | 7.398 ± 0.024    |
 | GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | **7.406 ± 0.066**|
 
+*Table 1. Results on RNA-A after ten rounds.*
+
 <br/>
 <br/>
 
 ![Figure 5: The max, median, and mean curve over rounds in RNA-B.]({{ site.baseurl }}/images/Fig5.png)
 *Figure 5: The max, median, and mean curve over rounds in RNA-B.*
-
-*Table 2. Results on RNA-B after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
@@ -266,11 +265,12 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.001 ± 0.016     | 0.858 ± 0.004     | 0.870 ± 0.006     | 6.599 ± 0.384     | **7.673 ± 0.043**|
 | GFN-AL + δ-CS   | **1.014 ± 0.001** | **0.929 ± 0.004** | **0.934 ± 0.003** | 5.644 ± 0.307     | 7.661 ± 0.064    |
 
+*Table 2. Results on RNA-B after ten rounds.*
+<br/>
+<br/>
 
 ![Figure 6: The max, median, and mean curve over rounds in RNA-C.]({{ site.baseurl }}/images/Fig6.png)
 *Figure 6: The max, median, and mean curve over rounds in RNA-C.*
-
-*Table 3. Results on RNA-C after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
@@ -284,14 +284,15 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GNF-AL          | 0.951 ± 0.034     | 0.774 ± 0.004     | 0.786 ± 0.004     | 7.072 ± 0.163     | **6.661 ± 0.071**|
 | GFN-AL + δ-CS   | **1.094 ± 0.045** | **0.972 ± 0.043** | **0.983 ± 0.043** | 6.493 ± 1.751     | 6.494 ± 0.084    |
 
+*Table 3. Results on RNA-C after ten rounds.*
+<br/>
+<br/>
 
 **DNA Sequence Design**
 In this task, we see in the results that GFN-AL is performing well without δ-CS. However, when we intergrate δ-CS with GFN-AL, it performs slighly better that all other baselines (Fig.7).
 
 ![Figure 7: The max, median, and mean curve over rounds in DNA (TF-Bind-8).]({{ site.baseurl }}/images/Fig7.png)
 *Figure 7: The max, median, and mean curve over rounds in DNA (TF-Bind-8).*
-
-*Table 4. Results on DNA (TF-Bind 8) after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
@@ -305,6 +306,9 @@ In this task, we see in the results that GFN-AL is performing well without δ-CS
 | GFN-AL          | 0.976 ± 0.002     | 0.947 ± 0.004     | 0.947 ± 0.009     | 3.158 ± 0.166     | **2.409 ± 0.071**|
 | GFN-AL + δ-CS   | 0.981 ± 0.002     | **0.971 ± 0.006** | **0.972 ± 0.005** | **1.277 ± 0.182** | 2.237 ± 0.356    |
 
+*Table 4. Results on DNA (TF-Bind 8) after ten rounds.*
+<br/>
+<br/>
 
 **Protien Sequence Design**
 
@@ -312,8 +316,6 @@ In this task, the search space was very large. The results shows that most of th
 
 ![Figure 8: The max, median, and mean curve over rounds in GFP.]({{ site.baseurl }}/images/Fig8.png)
 *Figure 8: The max, median, and mean curve over rounds in GFP.*
-
-*Table 5. Results on GFP after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty           |
 |-----------------|-------------------|-------------------|-------------------|-------------------|-------------------|
@@ -327,12 +329,12 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL          | 3.578 ± 0.003     | 3.511 ± 0.006     | 3.508 ± 0.004     | 60.278 ± 0.819    | **20.837 ± 0.916**|
 | GFN-AL + δ-CS   | **3.592 ± 0.003** | **3.567 ± 0.003** | **3.569 ± 0.003** | 46.255 ± 10.534   | 17.459 ± 5.538    |
 
-
+*Table 5. Results on GFP after ten rounds.*
+<br/>
+<br/>
 
 ![Figure 9: The max, median, and mean curve over rounds in AAV.]({{ site.baseurl }}/images/Fig9.png)
 *Figure 9: The max, median, and mean curve over rounds in AAV.*
-
-*Table 6. Results on AAV after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity          | Novelty           |
 |-----------------|-------------------|-------------------|-------------------|--------------------|-------------------|
@@ -346,6 +348,9 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL          | 0.560 ± 0.008     | 0.609 ± 0.002     | 0.613 ± 0.002     | 4.044 ± 0.303      | 1.966 ± 0.157     |
 | GFN-AL + δ-CS   | **0.708 ± 0.010** | **0.663 ± 0.007** | **0.665 ± 0.006** | **11.296 ± 0.865** | **10.233 ± 0.822**|
 
+*Table 6. Results on AAV after ten rounds.*
+<br/>
+<br/>
 
 ## Conclusion
 
