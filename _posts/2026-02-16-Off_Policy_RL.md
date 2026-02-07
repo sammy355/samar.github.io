@@ -225,14 +225,15 @@ When we introduced δ-CS in this experiment, we clearly see the results improvin
 
 ### Experiment 2 : FLEXS Benchmark
 
-#### RNA Sequence Design
+**RNA Sequence Design**
 
 Results shows that our algorithm is outperforming all other baselines for RNA designing tasks. We have three types RNA-A, RNA-B and RNA-C, in all the three types our method with GFlowNets Active Learning with δ-CS is standing as the top performer. We can see the comparison in Fig.4 for RNA-A, Fig.5 for RNA-B and Fig.6 for RNA-C. The values depicted in the graph are available in the tables below the graph respectively.
 
 ![Figure 4: The max, median, and mean curve over rounds in RNA-A.]({{ site.baseurl }}/images/Fig4.png)
 *Figure 4: The max, median, and mean curve over rounds in RNA-A.*
 
-**Table 1. Results on RNA-A after ten rounds.**
+*Table 1. Results on RNA-A after ten rounds.*
+
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | AdaLead         | 0.968 ± 0.070     | 0.808 ± 0.049     | 0.817 ± 0.048     | 3.518 ± 0.446     | 6.888 ± 0.426    |
@@ -245,12 +246,13 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.030 ± 0.024     | 0.838 ± 0.013     | 0.849 ± 0.013     | 6.983 ± 0.159     | 7.398 ± 0.024    |
 | GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | **7.406 ± 0.066**|
 
-\
+
 
 ![Figure 5: The max, median, and mean curve over rounds in RNA-B.]({{ site.baseurl }}/images/Fig5.png)
 *Figure 5: The max, median, and mean curve over rounds in RNA-B.*
 
-**Table 2. Results on RNA-B after ten rounds.**
+*Table 2. Results on RNA-B after ten rounds.*
+
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | AdaLead         | 0.965 ± 0.033     | 0.817 ± 0.036     | 0.828 ± 0.032     | 3.334 ± 0.423     | 7.441 ± 0.135    |
@@ -263,12 +265,12 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL          | 1.001 ± 0.016     | 0.858 ± 0.004     | 0.870 ± 0.006     | 6.599 ± 0.384     | **7.673 ± 0.043**|
 | GFN-AL + δ-CS   | **1.014 ± 0.001** | **0.929 ± 0.004** | **0.934 ± 0.003** | 5.644 ± 0.307     | 7.661 ± 0.064    |
 
-\
 
 ![Figure 6: The max, median, and mean curve over rounds in RNA-C.]({{ site.baseurl }}/images/Fig6.png)
 *Figure 6: The max, median, and mean curve over rounds in RNA-C.*
 
-**Table 3. Results on RNA-C after ten rounds.**
+*Table 3. Results on RNA-C after ten rounds.*
+
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | AdaLead         | 0.867 ± 0.081     | 0.723 ± 0.057     | 0.735 ± 0.057     | 3.893 ± 0.444     | 5.856 ± 0.515    |
@@ -282,13 +284,13 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL + δ-CS   | **1.094 ± 0.045** | **0.972 ± 0.043** | **0.983 ± 0.043** | 6.493 ± 1.751     | 6.494 ± 0.084    |
 
 
-#### DNA Sequence Design
+**DNA Sequence Design**
 In this task, we see in the results that GFN-AL is performing well without δ-CS. However, when we intergrate δ-CS with GFN-AL, it performs slighly better that all other baselines (Fig.7).
 
 ![Figure 7: The max, median, and mean curve over rounds in DNA (TF-Bind-8).]({{ site.baseurl }}/images/Fig7.png)
 *Figure 7: The max, median, and mean curve over rounds in DNA (TF-Bind-8).*
 
-**Table 4. Results on DNA (TF-Bind 8) after ten rounds.**
+*Table 4. Results on DNA (TF-Bind 8) after ten rounds.*
 
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
@@ -303,14 +305,15 @@ In this task, we see in the results that GFN-AL is performing well without δ-CS
 | GFN-AL + δ-CS   | 0.981 ± 0.002     | **0.971 ± 0.006** | **0.972 ± 0.005** | **1.277 ± 0.182** | 2.237 ± 0.356    |
 
 
-#### Protien Sequence Design
+**Protien Sequence Design**
 
 In this task, the search space was very large. The results shows that most of the baselines perform poorly in identifying new sequences that are better in quality than the highest quality sequence in the dataset. But, our method find high scoring sequences outside of dataset from round 1 (Fig.8 and Fig.9).
 
 ![Figure 8: The max, median, and mean curve over rounds in GFP.]({{ site.baseurl }}/images/Fig8.png)
 *Figure 8: The max, median, and mean curve over rounds in GFP.*
 
-**Table 5. Results on GFP after ten rounds.**
+*Table 5. Results on GFP after ten rounds.*
+
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty           |
 |-----------------|-------------------|-------------------|-------------------|-------------------|-------------------|
 | AdaLead         | 3.581 ± 0.004     | 3.549 ± 0.002     | 3.552 ± 0.002     | 47.237 ± 1.213    | 1.467 ± 0.094     |
@@ -323,12 +326,13 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL          | 3.578 ± 0.003     | 3.511 ± 0.006     | 3.508 ± 0.004     | 60.278 ± 0.819    | **20.837 ± 0.916**|
 | GFN-AL + δ-CS   | **3.592 ± 0.003** | **3.567 ± 0.003** | **3.569 ± 0.003** | 46.255 ± 10.534   | 17.459 ± 5.538    |
 
-\
+
 
 ![Figure 9: The max, median, and mean curve over rounds in AAV.]({{ site.baseurl }}/images/Fig9.png)
 *Figure 9: The max, median, and mean curve over rounds in AAV.*
 
-**Table 6. Results on AAV after ten rounds.**
+*Table 6. Results on AAV after ten rounds.*
+
 | Method          | Max               | Median            | Mean              | Diversity          | Novelty           |
 |-----------------|-------------------|-------------------|-------------------|--------------------|-------------------|
 | AdaLead         | 0.565 ± 0.027     | 0.505 ± 0.016     | 0.509 ± 0.017     | 5.693 ± 0.946      | 2.133 ± 1.266     |
