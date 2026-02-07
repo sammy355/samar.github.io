@@ -211,6 +211,44 @@ The vocabulary for both the tasks are defined as standard set of 20 amino acids,
 
 ## Results
 
+### Experiment 1 : Hard TF-Bind 8
+
+We noticed that the proxy provides very good results, it gives accurate predictions for data points in the initial dataset D<sub>0</sub>, the red points shows the results for initial dataset in Fig.2. However, if me move further from our observed initial dataset, the yielded results are not good. It is producing unreliable predictions for points outside D<sub>0</sub> or for out-of-distribution data (OOD). The correlation between the true oracle and proxy model estimation function decreases as we move farther in search space. So, here the hypothesis holds true, that "the proxy models perform poorly for out-of-distribution (OOD) Data".
+
+![Figure 2: Proxy failure on Hard TF-Bind-8.]({{ site.baseurl }}/images/Fig2.png)
+*Figure 2: Proxy failure on Hard TF-Bind-8.*
+
+When we introduced δ-CS in this experiment, we clearly see the results improving (Fig.3). If we adjust δ<1, the GFlowNets Active Learning performs better and yields high quality sequences with greater correlation with true score values. It is restricting the serach space to smaller regions near the high quality sequences.
+
+![Figure 3: Mean score over rounds on Hard TF-Bind-8.]({{ site.baseurl }}/images/Fig3.png)
+*Figure 3: Mean score over rounds on Hard TF-Bind-8.*
+
+### Experiment 2 : FLEXS Benchmark
+
+#### RNA Sequence Design
+
+$$
+\begin{table}[h]
+\centering
+\caption{Results on RNA-A after ten rounds.}
+\label{tab:rna-a-results}
+\begin{tabular}{lcccccc}
+\hline
+Method & Max & Median & Mean & Diversity & Novelty \\
+\hline
+AdaLead & $0.968 \pm 0.070$ & $0.808 \pm 0.049$ & $0.817 \pm 0.048$ & $3.518 \pm 0.446$ & $6.888 \pm 0.426$ \\
+BO & $0.722 \pm 0.025$ & $0.510 \pm 0.008$ & $0.528 \pm 0.004$ & $9.531 \pm 0.062$ & $5.842 \pm 0.083$ \\
+TuRBO & $0.875 \pm 0.078$ & $0.670 \pm 0.093$ & $0.682 \pm 0.096$ & $3.695 \pm 0.166$ & $6.464 \pm 0.759$ \\
+CMA-ES & $0.816 \pm 0.030$ & $0.585 \pm 0.016$ & $0.599 \pm 0.020$ & $5.747 \pm 0.110$ & $6.373 \pm 0.159$ \\
+CbAS & $0.678 \pm 0.020$ & $0.467 \pm 0.009$ & $0.481 \pm 0.008$ & $9.457 \pm 0.189$ & $5.428 \pm 0.078$ \\
+DbAS & $0.670 \pm 0.041$ & $0.472 \pm 0.016$ & $0.485 \pm 0.015$ & $9.483 \pm 0.100$ & $5.450 \pm 0.132$ \\
+DyNA PPO & $0.737 \pm 0.022$ & $0.507 \pm 0.007$ & $0.521 \pm 0.009$ & $8.889 \pm 0.034$ & $5.828 \pm 0.095$ \\
+GFN-AL & $1.030 \pm 0.024$ & $0.838 \pm 0.013$ & $0.849 \pm 0.013$ & $6.983 \pm 0.159$ & $7.398 \pm 0.024$ \\
+GFN-AL + $\delta$-CS & $\mathbf{1.055 \pm 0.000}$ & $\mathbf{0.939 \pm 0.008}$ & $\mathbf{0.947 \pm 0.009}$ & $6.442 \pm 0.525$ & $7.406 \pm 0.066$ \\
+\hline
+\end{tabular}
+\end{table}
+$$
 
 ## Conclusion
 
