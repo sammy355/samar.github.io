@@ -227,28 +227,26 @@ When we introduced δ-CS in this experiment, we clearly see the results improvin
 
 #### RNA Sequence Design
 
-$$
-\begin{table}[h]
-\centering
-\caption{Results on RNA-A after ten rounds.}
-\label{tab:rna-a-results}
-\begin{tabular}{lcccccc}
-\hline
-Method & Max & Median & Mean & Diversity & Novelty \\
-\hline
-AdaLead & $0.968 \pm 0.070$ & $0.808 \pm 0.049$ & $0.817 \pm 0.048$ & $3.518 \pm 0.446$ & $6.888 \pm 0.426$ \\
-BO & $0.722 \pm 0.025$ & $0.510 \pm 0.008$ & $0.528 \pm 0.004$ & $9.531 \pm 0.062$ & $5.842 \pm 0.083$ \\
-TuRBO & $0.875 \pm 0.078$ & $0.670 \pm 0.093$ & $0.682 \pm 0.096$ & $3.695 \pm 0.166$ & $6.464 \pm 0.759$ \\
-CMA-ES & $0.816 \pm 0.030$ & $0.585 \pm 0.016$ & $0.599 \pm 0.020$ & $5.747 \pm 0.110$ & $6.373 \pm 0.159$ \\
-CbAS & $0.678 \pm 0.020$ & $0.467 \pm 0.009$ & $0.481 \pm 0.008$ & $9.457 \pm 0.189$ & $5.428 \pm 0.078$ \\
-DbAS & $0.670 \pm 0.041$ & $0.472 \pm 0.016$ & $0.485 \pm 0.015$ & $9.483 \pm 0.100$ & $5.450 \pm 0.132$ \\
-DyNA PPO & $0.737 \pm 0.022$ & $0.507 \pm 0.007$ & $0.521 \pm 0.009$ & $8.889 \pm 0.034$ & $5.828 \pm 0.095$ \\
-GFN-AL & $1.030 \pm 0.024$ & $0.838 \pm 0.013$ & $0.849 \pm 0.013$ & $6.983 \pm 0.159$ & $7.398 \pm 0.024$ \\
-GFN-AL + $\delta$-CS & $\mathbf{1.055 \pm 0.000}$ & $\mathbf{0.939 \pm 0.008}$ & $\mathbf{0.947 \pm 0.009}$ & $6.442 \pm 0.525$ & $7.406 \pm 0.066$ \\
-\hline
-\end{tabular}
-\end{table}
-$$
+Results shows that our algorithm is outperforming all other baselines for RNA designing tasks. We have three types RNA-A, RNA-B and RNA-C, in all the three types our method with GFlowNets Active Learning with δ-CS is standing as the top performer. We can see the comparison in Fig.4 for RNA-A, Fig.5 for RNA-B and Fig.6 for RNA-C. The values depicted in the graph are available in the tables below the graph respectively.
+
+![Figure 4: The max, median, and mean curve over rounds in RNA-A.]({{ site.baseurl }}/images/Fig4.png)
+*Figure 4: The max, median, and mean curve over rounds in RNA-A.*
+
+**Table 1. Results on RNA-A after ten rounds.**
+| Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
+|-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
+| AdaLead         | 0.968 ± 0.070     | 0.808 ± 0.049     | 0.817 ± 0.048     | 3.518 ± 0.446     | 6.888 ± 0.426    |
+| BO              | 0.722 ± 0.025     | 0.510 ± 0.008     | 0.528 ± 0.004     | 9.531 ± 0.062     | 5.842 ± 0.083    |
+| TuRBO           | 0.875 ± 0.078     | 0.670 ± 0.093     | 0.682 ± 0.096     | 3.695 ± 0.166     | 6.464 ± 0.759    |
+| CMA-ES          | 0.816 ± 0.030     | 0.585 ± 0.016     | 0.599 ± 0.020     | 5.747 ± 0.110     | 6.373 ± 0.159    |
+| CbAS            | 0.678 ± 0.020     | 0.467 ± 0.009     | 0.481 ± 0.008     | 9.457 ± 0.189     | 5.428 ± 0.078    |
+| DbAS            | 0.670 ± 0.041     | 0.472 ± 0.016     | 0.485 ± 0.015     | 9.483 ± 0.100     | 5.450 ± 0.132    |
+| DyNA PPO        | 0.737 ± 0.022     | 0.507 ± 0.007     | 0.521 ± 0.009     | 8.889 ± 0.034     | 5.828 ± 0.095    |
+| GFN-AL          | 1.030 ± 0.024     | 0.838 ± 0.013     | 0.849 ± 0.013     | 6.983 ± 0.159     | 7.398 ± 0.024    |
+| GFN-AL + δ-CS   | **1.055 ± 0.000** | **0.939 ± 0.008** | **0.947 ± 0.009** | 6.442 ± 0.525     | 7.406 ± 0.066    |
+
+
+
 
 ## Conclusion
 
