@@ -232,7 +232,6 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 ![Figure 4: The max, median, and mean curve over rounds in RNA-A.]({{ site.baseurl }}/images/Fig4.png)
 *Figure 4: The max, median, and mean curve over rounds in RNA-A.*
 
-
 | Method          | Max               | Median            | Mean              | Diversity         | Novelty          |
 |-----------------|-------------------|-------------------|-------------------|-------------------|------------------|
 | AdaLead         | 0.968 ± 0.070     | 0.808 ± 0.049     | 0.817 ± 0.048     | 3.518 ± 0.446     | 6.888 ± 0.426    |
@@ -266,6 +265,7 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL + δ-CS   | **1.014 ± 0.001** | **0.929 ± 0.004** | **0.934 ± 0.003** | 5.644 ± 0.307     | 7.661 ± 0.064    |
 
 *Table 2. Results on RNA-B after ten rounds.*
+
 <br/>
 <br/>
 
@@ -285,6 +285,7 @@ Results shows that our algorithm is outperforming all other baselines for RNA de
 | GFN-AL + δ-CS   | **1.094 ± 0.045** | **0.972 ± 0.043** | **0.983 ± 0.043** | 6.493 ± 1.751     | 6.494 ± 0.084    |
 
 *Table 3. Results on RNA-C after ten rounds.*
+
 <br/>
 <br/>
 
@@ -307,6 +308,7 @@ In this task, we see in the results that GFN-AL is performing well without δ-CS
 | GFN-AL + δ-CS   | 0.981 ± 0.002     | **0.971 ± 0.006** | **0.972 ± 0.005** | **1.277 ± 0.182** | 2.237 ± 0.356    |
 
 *Table 4. Results on DNA (TF-Bind 8) after ten rounds.*
+
 <br/>
 <br/>
 
@@ -330,6 +332,7 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL + δ-CS   | **3.592 ± 0.003** | **3.567 ± 0.003** | **3.569 ± 0.003** | 46.255 ± 10.534   | 17.459 ± 5.538    |
 
 *Table 5. Results on GFP after ten rounds.*
+
 <br/>
 <br/>
 
@@ -349,6 +352,7 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL + δ-CS   | **0.708 ± 0.010** | **0.663 ± 0.007** | **0.665 ± 0.006** | **11.296 ± 0.865** | **10.233 ± 0.822**|
 
 *Table 6. Results on AAV after ten rounds.*
+
 <br/>
 <br/>
 
