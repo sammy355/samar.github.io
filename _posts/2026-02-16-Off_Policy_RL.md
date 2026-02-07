@@ -353,12 +353,15 @@ In this task, the search space was very large. The results shows that most of th
 | GFN-AL + δ-CS   | **0.708 ± 0.010** | **0.663 ± 0.007** | **0.665 ± 0.006** | **11.296 ± 0.865** | **10.233 ± 0.822**|
 
 *Table 6. Results on AAV after ten rounds.*
-
-<br/>
 <br/>
 
 ## Conclusion
 
+Biological sequence design faces a unique challenge, exploring a huge search space with only limited and often unreliable feedback. This work shows that simply increasing exploration is not enough. How and where a model explores matters too. By introducing δ-Conservative Search, the approach sets a trust into off-policy reinforcement learning, ensuring that exploration proceeds in regions where proxy models are reliable. Through structured noise injection, sequential denoising with GFlowNets, and uncertainty-aware adaptive conservativeness, the method achieves a strong balance between Exploration and Exploitation. The results across DNA, RNA and protein designing tasks demonstrate that this balance leads to discovery of higher-quality sequences under budget limitations.
+
+While δ-Conservative Search improves robustness and stability, it does not fundamentally solve all challenges of active learning. The approach still relies on the quality of the proxy model and its estimation of uncertainty, which can be imperfect, especially in early training stages or highly complex biological landscapes. Also, the choice of hyperparameters such as δconst and λ can influence performance and may require task-specific tuning. Although δ-CS limits exploration to reliable regions, this conservativeness may limit the discovery of high quality sequences if the proxy remains overcautious.
+
+Furthermore, in biological sequence design, the core idea of aligning exploration with model confidence offers a broader perspective for active learning and generative modeling in settings where data is limited and feedback is costly.
 
 
 <a id="ref-1"></a>
