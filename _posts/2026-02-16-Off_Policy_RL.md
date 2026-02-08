@@ -213,12 +213,12 @@ The vocabulary for both the tasks are defined as standard set of 20 amino acids,
 
 ### Experiment 1 : Hard TF-Bind 8
 
-We noticed that the proxy provides very good results, it gives accurate predictions for data points in the initial dataset D<sub>0</sub>, the red points shows the results for initial dataset in Fig.2. However, if me move further from our observed initial dataset, the yielded results are not good. It is producing unreliable predictions for points outside D<sub>0</sub> or for out-of-distribution data (OOD). The correlation between the true oracle and proxy model estimation function decreases as we move farther in search space. So, here the hypothesis holds true, that "the proxy models perform poorly for out-of-distribution (OOD) Data".
+We noticed that the proxy provides very good results, it gives accurate predictions for data points in the initial dataset D<sub>0</sub>, the red points shows the results for initial dataset in Fig.2. However, if we move further from our observed initial dataset, the yielded results are not good. It is producing unreliable predictions for points outside D<sub>0</sub> or for out-of-distribution data (OOD). The correlation between the true oracle and proxy model estimation function decreases as we move farther in search space. So, here the hypothesis holds true, that "the proxy models perform poorly for out-of-distribution (OOD) Data".
 
 ![Figure 2: Proxy failure on Hard TF-Bind-8.]({{ site.baseurl }}/images/Fig2.png)
 *Figure 2: Proxy failure on Hard TF-Bind-8.*
 
-When we introduced δ-CS in this experiment, we clearly see the results improving (Fig.3). If we adjust δ<1, the GFlowNets Active Learning performs better and yields high quality sequences with greater correlation with true score values. It is restricting the serach space to smaller regions near the high quality sequences.
+When we introduced δ-CS in this experiment, we clearly see the results improving (Fig.3). If we adjust δ<1, the GFlowNets Active Learning performs better and yields high quality sequences with greater correlation with true score values. It is restricting the search space to smaller regions near the high quality sequences.
 
 ![Figure 3: Mean score over rounds on Hard TF-Bind-8.]({{ site.baseurl }}/images/Fig3.png)
 *Figure 3: Mean score over rounds on Hard TF-Bind-8.*
@@ -359,7 +359,7 @@ In this task, the search space was very large. The results shows that most of th
 
 Biological sequence design faces a unique challenge, exploring a huge search space with only limited and often unreliable feedback. This work shows that simply increasing exploration is not enough. How and where a model explores matters too. By introducing δ-Conservative Search, the approach sets a trust into off-policy reinforcement learning, ensuring that exploration proceeds in regions where proxy models are reliable. Through structured noise injection, sequential denoising with GFlowNets, and uncertainty-aware adaptive conservativeness, the method achieves a strong balance between Exploration and Exploitation. The results across DNA, RNA and protein designing tasks demonstrate that this balance leads to discovery of higher-quality sequences under budget limitations.
 
-While δ-Conservative Search improves robustness and stability, it does not fundamentally solve all challenges of active learning. The approach still relies on the quality of the proxy model and its estimation of uncertainty, which can be imperfect, especially in early training stages or highly complex biological landscapes. Also, the choice of hyperparameters such as δ<sub>const</sub> and λ can influence performance and may require task-specific tuning. Although δ-CS limits exploration to reliable regions, this conservativeness may limit the discovery of high quality sequences if the proxy remains overcautious.
+While δ-Conservative Search improves robustness and stability, it does not fundamentally solve all challenges of active learning. The approach still relies on the quality of the proxy model and its estimation of uncertainty, which can be imperfect, especially in early training stages or highly complex biological landscapes. Also, the choice of hyperparameters such as δ<sub>const</sub> and λ can influence performance and may require task-specific tuning. Although δ-CS limits exploration to reliable regions, this conservativeness may limit the discovery of high quality sequences if the proxy remains overconfident.
 
 Furthermore, in biological sequence design, the core idea of aligning exploration with model confidence offers a broader perspective for active learning and generative modeling in settings where data is limited and feedback is costly.
 
