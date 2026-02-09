@@ -385,7 +385,7 @@ Furthermore, in biological sequence design, the core idea of aligning exploratio
 
 ## References
 
-1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design. [https://arxiv.org/abs/2102.09844  ](https://arxiv.org/abs/2410.04461)
+1. Hyeonah Kim, Minsu Kim, Taeyoung Yun, Sanghyeok Choi, Emmanuel Bengio, Alex Hernández-García, Jinkyoo Park (2025). Improved Off-policy Reinforcement Learning in Biological Sequence Design.
 2. Jain, M., Bengio, E., Hernandez-Garcia, A., Rector-Brooks, J., Dossou, B. F., Ekbote, C. A., Fu, J., Zhang, T., Kilgour, M., Zhang, D., et al. (2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML).  
 3. Tripp, A., Daxberger, E., and Hern´ andez-Lobato, J. M. (2020) Sample-efficient optimization in the latent space of deep generative models via weighted retraining. In Advances in Neural Information Processing Systems (NeurIPS).  
 4. Sinai, S., Wang, R., Whatley, A., Slocum, S., Locane, E.,and Kelsic, E. D. (2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design. 
