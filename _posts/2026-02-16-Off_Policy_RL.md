@@ -14,7 +14,7 @@ math: true
 
 ## Abstract
 
-Designing biological sequences such as DNA, RNA, and proteins is a central challenge in biotechnology due to the Huge search space and the high cost of estimation. Recent reinforcement learning (RL) approaches rely on proxy models to estimate quality, but these models often fail when exploring regions with unknown data. This paper introduces δ-Conservative Search (δ-CS), a novel off-policy reinforcement learning strategy that balances exploration and reliability in biological sequence design. The method focus on high-scoring known sequences by randomly masking tokens and then denoising them using a generative policy, ensuring that new candidates remain close to reliable regions of the search space. The degree of conservativeness is adaptively adjusted based on the proxy model’s uncertainty. Experiments across DNA, RNA, and protein design tasks demonstrate that δ-CS consistently discovers higher quality sequences than existing methods. This makes δ-CS a scalable and reliable framework for real-world biological design.
+Designing biological sequences such as DNA, RNA, and proteins is a central challenge in biotechnology due to the Huge search space and the high cost of estimation. Recent reinforcement learning (RL) approaches rely on proxy models to estimate quality , but these models often fail when exploring regions with unknown data <a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>. This paper introduces δ-Conservative Search (δ-CS), a novel off-policy reinforcement learning strategy that balances exploration and reliability in biological sequence design<a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>. The method focus on high-scoring known sequences by randomly masking tokens and then denoising them using a generative policy, ensuring that new candidates remain close to reliable regions of the search space. The degree of conservativeness is adaptively adjusted based on the proxy model’s uncertainty. Experiments across DNA, RNA, and protein design tasks demonstrate that δ-CS consistently discovers higher quality sequences than existing methods. This makes δ-CS a scalable and reliable framework for real-world biological design.
 
 ## Table of Contents
 
@@ -29,7 +29,7 @@ Designing biological sequences such as DNA, RNA, and proteins is a central chall
 
 ## Introduction and Motivation
 
-In Biotechnology, designing biological sequences is a central problem. For example, we may want to design DNA sequences with high binding affinity, RNA molecules with specific folding properties, or proteins with enhanced fluorescence or stability. However, this is extremely challenging. The search space for the sequences grows exponentially Large with increasing sequence length, which makes brute-force search impossible. Furthermore, evaluating these sequences using an evaluating function, usually known as "Oracle function" or simply what we call "wet-lab experiments" is very expensive and takes a lot of time. Also, evaluation using Detailed simulation is not very cost and time effective as well.
+In Biotechnology, designing biological sequences is a central problem. For example, we may want to design DNA sequences with high binding affinity, RNA molecules with specific folding properties, or proteins with enhanced fluorescence or stability. However, this is extremely challenging. The search space for the sequences grows exponentially Large with increasing sequence length, which makes brute-force search impossible. Furthermore, evaluating these sequences using an evaluating function, usually known as "Oracle function" or simply what we call "wet-lab experiments" is very expensive and takes a lot of time <a href="#ref-8" title="(2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR)">[8]</a>. Also, evaluation using Detailed simulation is not very cost and time effective as well.
 
 To address this problem, we often use machine learning models called proxy models. But these proxies are imperfect, they are not always accurate and can make unreliable predictions, especially for unknown sequences. This paper addresses exactly this issue by proposing a conservative search strategy that improves robustness without sacrificing exploration. It introduces a novel off-policy search method called Delta-Conservative Search (δ-CS), which is designed to enhance the robustness of generative policies, specifically Generative Flow Networks (GFlowNets), for designing biological sequences such as DNA, RNA, and proteins<a href="#ref-1" title="(2025) Improved Off-policy Reinforcement Learning in Biological Sequence Design">[1]</a>.
 
@@ -41,20 +41,20 @@ In this setting, an agent generates a sequence step by step. Each action corresp
 
 ### On-policy Reinforcement Learning
 
-Early RL-based approaches for sequence design relied on on-policy methods, meaning the policy is trained only on data generated by its current version. A representative example is DyNA PPO, which applies Proximal Policy Optimization (PPO) within an active learning loop. On-policy methods have some appealing properties. They are relatively stable, simple, and align well with classical RL theory. However, they come with a major drawback which is poor data efficiency. Since they cannot effectively reuse previously collected sequences, large amounts of expensive oracle evaluations are needed to make progress. This drawback becomes highly problematic when dealing with Huge search spaces, where exploring is essential.
+Early RL-based approaches for sequence design relied on on-policy methods, meaning the policy is trained only on data generated by its current version. A representative example is DyNA PPO, which applies Proximal Policy Optimization (PPO) within an active learning loop <a href="#ref-8" title="(2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR)">[8]</a>. On-policy methods have some appealing properties. They are relatively stable, simple, and align well with classical RL theory. However, they come with a major drawback which is poor data efficiency. Since they cannot effectively reuse previously collected sequences, large amounts of expensive oracle evaluations are needed to make progress. This drawback becomes highly problematic when dealing with Huge search spaces, where exploring is essential.
 
 ### Off-policy Reinforcement Learning
 
 To address the limitations of On-policy RL, researchers have turned to off-policy RL methods, which can learn from data generated by older policies or even from fixed offline datasets. This is very effective in biology, where historical datasets and previously evaluated sequences are often available.
 
-One effective off-policy framework for sequence design is Generative Flow Networks (GFlowNets). Instead of learning a single optimal sequence, GFlowNets learn a distribution over sequences, where the probability of sampling a sequence is proportional to its reward. This allows them to generate high-quality sequences , a crucial property when exploring biological landscapes. Another advantage of GFlowNets is their flexibility, they can mix offline data (existing evaluated sequences) with newly generated samples, leading to more stable and efficient training compared to on-policy RL methods.
+One effective off-policy framework for sequence design is Generative Flow Networks (GFlowNets) <a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a>. Instead of learning a single optimal sequence, GFlowNets learn a distribution over sequences, where the probability of sampling a sequence is proportional to its reward. This allows them to generate high-quality sequences , a crucial property when exploring biological landscapes. Another advantage of GFlowNets is their flexibility, they can mix offline data (existing evaluated sequences) with newly generated samples, leading to more stable and efficient training compared to on-policy RL methods.
 
 
 ## The Core Problem: Proxy Misspecification
 
-Despite their promising performance, off-policy methods introduce a serious challenge, which is proxy model misspecification. Proxy models are trained on limited data and tend to make unreliable predictions on out-of-distribution (OOD) sequences. Off-policy methods, especially those that explore the search space widely, are more likely to generate such sequences.
+Despite their promising performance, off-policy methods introduce a serious challenge, which is proxy model misspecification <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. Proxy models are trained on limited data and tend to make unreliable predictions on out-of-distribution (OOD) sequences. Off-policy methods, especially those that explore the search space widely, are more likely to generate such sequences.
 
-This can lead to assigning greater reward to the sequence which may look promising but perform poor during evaluation by oracle function. The policy learns to exploit weaknesses in the proxy model rather than discovering meaningful biological sequences. Recent studies have shown that this issue becomes especially severe in large scale problems such as protein design, where the proxy model is particularly uncertain early in training. This creates a clear trade-off between exploration and reliability, which existing methods fail to balance effectively.
+This can lead to assigning greater reward to the sequence which may look promising but perform poor during evaluation by oracle function. The policy learns to exploit weaknesses in the proxy model rather than discovering meaningful biological sequences. Recent studies have shown that this issue becomes especially severe in large scale problems such as protein design, where the proxy model is particularly uncertain early in training. This creates a clear trade-off between exploration and reliability, which existing methods fail to balance effectively <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a><a href="#ref-15" title="(2021) Conservative objective models for effective offline model-based optimization. In International Conference on Machine Learning (ICML)">[15]</a>.
 
 ## Key Idea: Delta Conservative Search
 
@@ -171,7 +171,7 @@ To validate the effectiveness of our δ-Conservative Search (δ-CS), we conducte
 
 ### 1. Hard TF-Bind 8
 
-The task is called Hard TF-Bind 8. In this task we aim to generate DNA sequences (length L= 8) having maximize binding affinity. We collect the initial dataset near a certain sequence. The sequences in initial dataset have lower scores than the given sequence. We then form a dataset D0 of size 1,024. Also we modify the score landscape to assign zero to sequence scoring < 0.3. It follows Real world design where search space is vast with limited data availability.
+The task is called Hard TF-Bind 8. In this task we aim to generate DNA sequences (length L= 8) having maximize binding affinity. We collect the initial dataset near a certain sequence <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a>. The sequences in initial dataset have lower scores than the given sequence. We then form a dataset D0 of size 1,024. Also we modify the score landscape to assign zero to sequence scoring less than 0.3. It follows Real world design where search space is vast with limited data availability.
 
 ### 2. FLEXS Benchmark
 
@@ -181,13 +181,13 @@ In this experiment we compare the performace of our algorithm with other baselin
 
 <b>AdaLead : </b> It is an evolutionary type method that employs adaptive greedy search with hill climbing <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a>.
 
-<b>Bayesian optimization : </b> Black-box optimization algorithm.
+<b>Bayesian optimization : </b> Black-box optimization algorithm <a href="#ref-11" title="(2012) Practical Bayesian optimization of machine learning algorithms. In Advances in Neural Information Processing Systems (NIPS)">[11]</a>.
 
-<b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization.
+<b>TuRBO : </b> It uses Gaussian process for local Bayesian optimization <a href="#ref-12" title=" (2019) Scalable global optimization via local bayesian optimization. Neural Information Processing Systems (NeurIPS)">[12]</a>.
 
-<b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy.
+<b>CMA-ES : </b> It is an evolutionary type method that adapts covariance matrix evolution strategy <a href="#ref-13" title="(2006) The CMA evolution strategy: a comparing review. Towards a New Evolutionary Computation: Advances in the Estimation of Distribution Algorithms, pp. 75–102">[13]</a>.
 
-<b>CbAS and DbAS : </b> It is a model based technique which has variational auto encoder with trust regions.
+<b>CbAS and DbAS : </b> It is a model based technique which has variational auto encoder with trust regions <a href="#ref-14" title="(2019) Conditioning by adaptive sampling for robust design. In Proceedings of the 36th International Conference on Machine Learning (ICML)">[14]</a><a href="#ref-15" title="(2018) Design by adaptive sampling">[15]</a>.
 
 <b>DyNA PPO : </b> It is an On-policy RL method for proximal policy optimization with proxy <a href="#ref-8" title="(2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR)">[8]</a>.
 
@@ -197,11 +197,11 @@ For each task, we conduct 10 active learning rounds. Starting from the initial d
 
 #### 2.1 RNA Sequence design
 
-The goal is to design an RNA sequence that binds to the target with lowest binding energy. We measure the quality by ViennaRNA algorithm <a href="#ref-5" title="(2011) ViennaRNA package 2.0. Algorithms for molecular biology">[5]</a>. The length (L) of RNA is set to 14, with 4 tokens. There are three RNA binding tasks, namely RNA-A, RNA-B, and RNA-C.  Initial datasets consist of 5,000 randomly generated sequences and offline dataset provided in <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. δ is set to 0.5 and λ is set to 5.
+The goal is to design an RNA sequence that binds to the target with lowest binding energy. We measure the quality by ViennaRNA algorithm <a href="#ref-5" title="(2011) ViennaRNA package 2.0. Algorithms for molecular biology">[5]</a>. The length (L) of RNA is taken as 14 having 4 tokens. There are three RNA binding tasks, namely RNA-A, RNA-B, and RNA-C.  Initial datasets consist of 5,000 randomly generated sequences and offline dataset is taken as provided in <a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. δ is set to 0.5 and λ is set to 5.
 
 #### 2.2 DNA Sequence Design
 
-For this task we follow the experimental setup from previous setup <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a><a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a><a href="#ref-7" title="(2022) DesignBench: Benchmarks for data-driven offline model-based optimization. In International Conference on Machine Learning (ICML)">[7]</a><a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. The Initial dataset D<sub>0</sub> is taken as the bottom 50% in the scoring landscape. Which have nearly 33,000 samples and the maximum score is 0.4. δ is set to 0.5 and λ is set to 5.
+For this task we follow the experimental setup from previous studies <a href="#ref-4" title="(2020) AdaLead: A simple and robust adaptive greedy search algorithm for sequence design">[4]</a><a href="#ref-2" title="(2022) Biological sequence design with GFlowNets. In International Conference on Machine Learning (ICML)">[2]</a><a href="#ref-7" title="(2022) DesignBench: Benchmarks for data-driven offline model-based optimization. In International Conference on Machine Learning (ICML)">[7]</a><a href="#ref-6" title="(2023) Bootstrapped training of score-conditioned generator for offline design of biological sequences. In Advances in Neural Information Processing Systems (NeurIPS)">[6]</a>. The Initial dataset D<sub>0</sub> is taken as the bottom 50% in the scoring landscape. Which have nearly 33,000 samples and has a maximum score of 0.4. δ is set to 0.5 and λ is set to 5.
 
 #### 2.3 Protein Sequence Design
 
@@ -378,6 +378,10 @@ Furthermore, in biological sequence design, the core idea of aligning exploratio
 <a id="ref-12"></a>
 <a id="ref-13"></a>
 <a id="ref-14"></a>
+<a id="ref-15"></a>
+<a id="ref-16"></a>
+
+
 
 ## References
 
@@ -391,5 +395,9 @@ Furthermore, in biological sequence design, the core idea of aligning exploratio
 8. Angermueller, C., Dohan, D., Belanger, D., Deshpande, R., Murphy, K., and Colwell, L. (2020) Model-based reinforcement learning for biological sequence design. In International Conference on Learning Representations (ICLR).
 9. Sarkisyan, K. S., Bolotin, D. A., Meer, M. V., Usmanova, D. R., Mishin, A. S., Sharonov, G. V., Ivankov, D. N.,Bozhanova, N. G., Baranov, M. S., Soylemez, O., et al. (2016) Local fitness landscape of the green fluorescent protein. Nature, 533(7603):397–401.
 10. Ogden, P. J., Kelsic, E. D., Sinai, S., and Church, G. M. (2019) Comprehensive AAV capsid fitness landscape reveals a viral gene and enables machine-guided design. Science, 366(6469):1139–1143.
-
-
+11. Snoek, J., Larochelle, H., and Adams, R. P. (2012) Practical Bayesian optimization of machine learning algorithms. In Advances in Neural Information Processing Systems (NIPS).
+12. Eriksson, D., Pearce, M., Gardner, J., Turner, R. D., and Poloczek, M. (2019) Scalable global optimization via local bayesian optimization. Neural Information Processing Systems (NeurIPS).
+13. Hansen, N. (2006) The CMA evolution strategy: a comparing review. Towards a New Evolutionary Computation: Advances in the Estimation of Distribution Algorithms, pp. 75–102.
+14. Brookes, D., Park, H., and Listgarten, J. (2019) Conditioning by adaptive sampling for robust design. In Proceedings of the 36th International Conference on Machine Learning (ICML).
+15. Brookes, D. H. and Listgarten, J. (2018) Design by adaptive sampling.
+16. Trabucco, B., Kumar, A., Geng, X., and Levine, S. (2021) Conservative objective models for effective offline model-based optimization. In International Conference on Machine Learning (ICML).
